@@ -67,6 +67,7 @@ body {
   height: var(--tamanho-banner);
   color: rgb(255, 255, 255);
   background-image: url('../assets/imgs/fundo.jpg');
+  filter: brightness(0.7);
   background-size: cover;
 }
 
@@ -479,6 +480,13 @@ input {
   flex-direction: column;
   overflow: scroll;
   height: var(--tamanho-simulador);
+}
+/* Serviço*/
+.serviço{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* ALERTA */

@@ -96,6 +96,7 @@ body {
 .social {
   background-color: #025582;
   display: flex;
+  color: white;
 }
 
 .social .container {
@@ -116,6 +117,7 @@ body {
 .social p {
   
    text-align: justify; /* texto alinhado*/ 
+   
 }
 
 .box {

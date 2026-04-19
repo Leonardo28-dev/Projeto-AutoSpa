@@ -44,8 +44,8 @@ body {
 
 .dash-right .avisos .div-form textarea {
   width: 95%;
-  border: 3px solid #e6005a;
-  background-color: white;
+  border: 3px solid #230074;
+  background-color: #261c7b;
   border-radius: 5px;
 }
 
@@ -57,8 +57,8 @@ body {
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
+  color: #cdc5c8;
+  background-color: #705d65;
   width: 120px;
 }
 
@@ -71,7 +71,7 @@ body {
   font-size: 14px;
   padding: 5px 8px;
   color: white;
-  background-color: #e6005a;
+  background-color: #0029a2;
   width: 80px;
 }
 
@@ -82,7 +82,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 3px solid #e6005a;
+  border-bottom: 3px solid #ffffff;
   padding: 20px;
 }
 
@@ -112,7 +112,7 @@ body {
 /* pagina graficos */
 
 .dash-header {
-  background-color: #212124;
+   background-color: #261c7b;
 }
 
 .dash {
@@ -120,7 +120,8 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+ 
+  background-color: #261c7b;
   height: 100vh;
   overflow: auto;
 }
@@ -129,21 +130,26 @@ body {
   /* border: 2px solid pink; */
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 60%;
+  justify-content: center;
   margin: auto;
+   align-items: center;
   margin-top: 10px;
-  background-color: #212124;
+
 }
 
 .area-parametros-alerta .titulo-legenda {
   color: white;
   font-weight: 600;
+   
   width: fit-content;
   margin: 10px 20px;
 }
 
 .parametros-alerta {
   display: flex;
+  justify-content: center; /* CENTRALIZA NO MEIO */
+  align-items: center;
   width: 100%;
 }
 
@@ -170,21 +176,20 @@ body {
   background-color: #5c6bc0;
 }
 
-.perigo-quente {
-  background-color: #ff7043;
-}
+
 
 .alerta-frio {
-  background-color: #42a5f5;
+  background-color: #891010;
+  
 }
 
-.alerta-quente {
-  background-color: #ffee58;
+.fundo_quiz{
+  background-color: #003272;
+   width: 100%;
+
+  margin-left: 20%;
 }
 
-.ideal {
-  background-color: #9ccc65;
-}
 
 .cards {
   display: flex;
@@ -204,9 +209,11 @@ body {
   flex-wrap: wrap;
   display: flex;
   /* text-align: center; */
+  align-items: center;
   height: 180px;
   /* justify-content: right; */
-  background-color: #212124;
+  background-color:
+    #18308d;
   font-size: 20px;
 }
 
@@ -348,7 +355,7 @@ canvas {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
+  border-right: 3px solid #020558;
   background-color: #212124;
 }
 
@@ -365,7 +372,7 @@ canvas {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  color: #ffffff;
 }
 
 .hello {
@@ -375,7 +382,7 @@ canvas {
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: #2b0185;
   font-weight: 300;
   font-size: 1.2rem;
 }
@@ -387,7 +394,7 @@ canvas {
 .btn-nav {
   width: 40%;
   color: white;
-  background-color: #e6005a;
+  background-color: #6f6f6f;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
@@ -396,14 +403,14 @@ canvas {
 .btn-nav-white {
   width: 40%;
   background-color: white;
-  border: 3px solid #e6005a;
+  border: 3px solid #6f6f6f;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #003272;
   padding: 0;
   margin: 0;
 }

@@ -31,7 +31,7 @@
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
                 <br>
-                <h3><span id="b_cpf">Cpf</span>!</h3>
+           
             </div>
 
             <div class="btn-nav">
@@ -44,11 +44,7 @@
                 </a>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
+       
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -179,7 +175,8 @@
     }
 
     function corrigirQuiz() {
-        let contador = 0;
+        let acertos = 0;
+        let erros =0;
         for (let i = 1; i <= 15; i++) {
             let resposta = document.querySelector(`input[name="q${i}"]:checked`);
             /*  :checked : que está selecionado
@@ -190,7 +187,9 @@
             /*  .querySelector(...): Procura um elemento específico na página */
 
             if (resposta.value == "certo") {
-                contador++;
+                acertos++;
+            }else{
+                erros++;
             }
 
 
@@ -199,10 +198,38 @@
 
         }
 
-        resultado.innerHTML = `Você acertou  ${contador} de 15 perguntas!`;
+        resultado.innerHTML = `Você acertou  ${acertos} de 15 perguntas!`;
+
+    
+      // ENVIO IGUAL AO CADASTRO
+    fetch("/quiz/salvar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            acertosServer: acertos,
+            errosServer: erros,
+            fk_usuarioServer: sessionStorage.ID_USUARIO
+        }),
+    })
+    .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            console.log("Quiz salvo com sucesso!");
+
+        } else {
+            throw "Houve um erro ao salvar o quiz!";
+        }
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
 
     }
-
 </script>
 
 </html>

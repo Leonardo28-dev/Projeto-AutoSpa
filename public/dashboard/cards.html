@@ -136,13 +136,14 @@
                         <button onclick="corrigirQuiz()">Finalizar</button>
                         
                         <button onclick="tentarNovamente()">Tentar novamente</button>
-                   
 
-                    <h3 id="resultado"></h3>
+
+                        <h3 id="resultado"></h3>
+                        <h3 id="aviso"></h3>
                 </center>
             </div>
-            </div>
         </div>
+    </div>
 
 
 
@@ -180,24 +181,25 @@
         let erros = 0;
         for (let i = 1; i <= 15; i++) {
             let resposta = document.querySelector(`input[name="q${i}"]:checked`);
-          
-     
-            
+
+
         
-            if (resposta.value == "certo") {
+            if (resposta == null) {
+                aviso.innerHTML=`Você não fez todo quiz!`
+            }
+            else if (resposta.value == "certo") {
                 acertos++;
-            } else if (resposta.value == "null") {
-                alert("Alguma pergunta não foi respondida!")
+
             }
             else {
                 erros++
             }
         }
-    let porcentagem_acerto = ((acertos/15)*100).toFixed(0)
-    let porcentagem_erro=((erros/15)*100).toFixed(0)
+        let porcentagem_acerto = ((acertos / 15) * 100).toFixed(0)
+        let porcentagem_erro = ((erros / 15) * 100).toFixed(0)
         resultado.innerHTML = `Você acertou  ${acertos} de 15 perguntas, sua porcentagem de acertos foi ${porcentagem_acerto}%`;
-        
-          resultado.innerHTML += `<br>Você errou  ${erros} de 15 perguntas, sua porcentagem de erro foi ${porcentagem_erro}%`;
+
+        resultado.innerHTML += `<br>Você errou  ${erros} de 15 perguntas, sua porcentagem de erro foi ${porcentagem_erro}%`;
 
 
         fetch("/quiz/salvar", {

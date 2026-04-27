@@ -115,9 +115,10 @@ body {
 }
 
 .social p {
-  
-   text-align: justify; /* texto alinhado*/ 
-   
+
+  text-align: justify;
+  /* texto alinhado*/
+
 }
 
 .box {
@@ -144,6 +145,114 @@ body {
 .footer .container .version {
   font-size: 12px;
 }
+/*  Tela de Produto  */ 
+.socialproduto .container .boxes_produto {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px 0;
+}
+.socialproduto {
+  background-color: #264a84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.socialproduto1 {
+  background-color: #23519b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+/*  Tela de evento  */ 
+.socialevento .container .boxes_evento {
+   display: flex;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.socialevento {
+  background-color: #264a84;
+  display: flex;
+  padding: 40px;
+}
+.socialevento1 {
+  background-color: #23519b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/*  Tela de Ferramenta  */ 
+.socialferramenta.container .boxes_ferramenta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px 0;
+}
+.socialferramenta {
+  background-color: #264a84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.socialferramenta1 {
+  background-color: #23519b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+
+/*  Tela de lavagem  */ 
+.sociallavagem .container .boxes_lavagem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px 0;
+}
+.sociallavagem {
+  background-color: #264a84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.sociallavagem1 {
+  background-color: #23519b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+/*  Tela de Serviço  */ 
+.socialserviço .container .boxes_serviço {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px 0;
+}
+.socialserviço {
+  background-color: #264a84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.socialserviço1 {
+  background-color: #23519b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
 
 /* LOGIN */
 
@@ -244,17 +353,25 @@ body {
 }
 
 /* CSS DA PARTE DE HISTÓRIA*/
-.social1{
-   background-color: #264a84;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.socialhistoria {
+  background-color: #264a84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 30px;
 }
+
 .fotocarroantigo {
 
-background-color: #bab6b6;
+  background-color: #bab6b6;
 
+}
+
+.socialhistoria .container .boxeshistoria {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px 0;
 }
 
 .caixa {
@@ -262,28 +379,51 @@ background-color: #bab6b6;
   color: rgb(222, 222, 222);
   justify-content: space-between;
   display: flex;
-   text-align: justify; /* texto alinhado*/ 
-    gap: 40px;
+  text-align: justify;
+  /* texto alinhado*/
+  gap: 40px;
+      
+  
+}
+
+
+.caixa1 {
+
+  color: rgb(222, 222, 222);
+  justify-content: space-between;
+  display: flex;
+  text-align: justify;
+  /* texto alinhado*/
+  gap: 45px;
 
 }
 
-/* Especialidades  */ 
-.containerbloco{
-justify-content: center ;
+.container1 {
+  display: flex;
+  width: 85%;
+  margin: auto;
+}
+
+
+
+/* Especialidades  */
+.containerbloco {
+  justify-content: center;
   flex-direction: row;
 
   align-items: center;
   display: flex;
   padding: 50px;
 }
-.bloco1{
-   border: 0;
+
+.bloco1 {
+  border: 0;
   border-radius: 7px;
   font-weight: 80px;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   align-items: center;
   font-size: 14px;
-  
+
   flex-direction: column;
   display: flex;
   color: #030303;
@@ -291,10 +431,11 @@ justify-content: center ;
   width: 220px;
   margin-left: 100px;
   height: 290px;
-background-color: #025582;
+  background-color: #3c84aa;
 }
-.bloco2{
-   border: 0;
+
+.bloco2 {
+  border: 0;
   border-radius: 7px;
   font-weight: 80px;
   font-size: 14px;
@@ -307,10 +448,11 @@ background-color: #025582;
   width: 220px;
   margin-left: 100px;
   height: 290px;
- background-color: #025582;
+   background-color: #3c84aa;
 }
-.bloco3{
-   border: 0;
+
+.bloco3 {
+  border: 0;
   border-radius: 7px;
   align-items: center;
   font-weight: 80px;
@@ -323,10 +465,11 @@ background-color: #025582;
   font-size: 20px;
   margin-left: 100px;
   height: 290px;
-background-color: #025582;
+   background-color: #3c84aa;
 }
-.bloco4{
-   border: 0;
+
+.bloco4 {
+  border: 0;
   border-radius: 7px;
   font-weight: 80px;
   font-size: 14px;
@@ -339,22 +482,24 @@ background-color: #025582;
   font-size: 20px;
   margin-left: 100px;
   height: 290px;
-background-color: #025582;
+   background-color: #3c84aa;
 }
+
 /* VIDEOS   */
-.containervideos{
-  justify-content: center ;
+.containervideos {
+  justify-content: center;
   font-size: 25px;
   display: flex;
   background-color: #adadad;
   padding: 80px;
 }
-.video1{
-    border: 0;
+
+.video1 {
+  border: 0;
   border-radius: 7px;
   font-weight: 80px;
   font-size: 14px;
-  
+
   flex-direction: column;
   display: flex;
   color: #fff;
@@ -363,12 +508,13 @@ background-color: #025582;
   height: 100px;
   background-color: #adadad;
 }
-.video2{
-    border: 0;
+
+.video2 {
+  border: 0;
   border-radius: 7px;
   font-weight: 80px;
   font-size: 14px;
-  
+
   flex-direction: column;
   display: flex;
   color: #fff;
@@ -377,12 +523,13 @@ background-color: #025582;
   height: 100px;
   background-color: #adadad;
 }
-.video3{
-    border: 0;
+
+.video3 {
+  border: 0;
   border-radius: 7px;
   font-weight: 80px;
   font-size: 14px;
-  
+
   flex-direction: column;
   display: flex;
   color: #fff;
@@ -391,21 +538,24 @@ background-color: #025582;
   height: 100px;
   background-color: #adadad;
 }
-.video4{
-    border: 0;
+
+.video4 {
+  border: 0;
   border-radius: 7px;
   font-weight: 80px;
   font-size: 14px;
-  
+
   flex-direction: column;
   display: flex;
   color: #fff;
   width: 190px;
+ 
   margin-left: 100px;
   height: 100px;
   background-color: #adadad;
 }
-  /* FORMULARIO */
+
+/* FORMULARIO */
 
 .alerta_erro {
   display: flex;
@@ -483,8 +633,9 @@ input {
   overflow: scroll;
   height: var(--tamanho-simulador);
 }
+
 /* Serviço*/
-.serviço{
+.serviço {
   display: flex;
   align-items: center;
   justify-content: center;

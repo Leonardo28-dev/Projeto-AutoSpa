@@ -193,10 +193,11 @@
                 erros++
             }
         }
-
-        resultado.innerHTML = `Você acertou  ${acertos} de 15 perguntas!`;
+    let porcentagem_acerto = ((acertos/15)*100).toFixed(0)
+    let porcentagem_erro=((erros/15)*100).toFixed(0)
+        resultado.innerHTML = `Você acertou  ${acertos} de 15 perguntas, sua porcentagem de acertos foi ${porcentagem_acerto}%`;
         
-          resultado.innerHTML += `<br>Você errou  ${erros} de 15 perguntas!`;
+          resultado.innerHTML += `<br>Você errou  ${erros} de 15 perguntas, sua porcentagem de erro foi ${porcentagem_erro}%`;
 
 
         fetch("/quiz/salvar", {

@@ -1,2 +1,2 @@
 # Projeto-AutoSpa
-Projeto individual
+Projeto individual sobre Estética automotiva, Leonardo Werner Silva CCOa SPTECH

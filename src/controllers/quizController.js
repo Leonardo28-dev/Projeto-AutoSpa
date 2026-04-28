@@ -1,7 +1,7 @@
 var quizModel = require("../models/quizModel");
 
 function salvar(req, res) {
-  var acertos = req.body.acertosServer;
+      var acertos = req.body.acertosServer;
 var erros = req.body.errosServer;
 var fk_usuario = req.body.fk_usuarioServer;
 

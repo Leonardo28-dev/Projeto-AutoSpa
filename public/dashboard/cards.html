@@ -134,7 +134,7 @@
                     <br><br>
                     <div class id="button_container">
                         <button onclick="corrigirQuiz()">Finalizar</button>
-                        
+
                         <button onclick="tentarNovamente()">Tentar novamente</button>
 
 
@@ -156,51 +156,35 @@
 
 <script>
 
-    function exibirAquarios() {
-        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-            document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
-                            <h1>${item.descricao}</h1>
-                        </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.id}"></div>
-                    </div>
-                    </div>
-                    `
-        });
-    }
-
-
 
     function corrigirQuiz() {
-        let acertos = 0;
-        let erros = 0;
+        let cont_acertos = 0;
+        let cont_erros = 0;
         for (let i = 1; i <= 15; i++) {
             let resposta = document.querySelector(`input[name="q${i}"]:checked`);
 
 
-        
+
             if (resposta == null) {
-                aviso.innerHTML=`Você não fez todo quiz!`
+                aviso.innerHTML = `Você não fez todo quiz!`
             }
             else if (resposta.value == "certo") {
-                acertos++;
+                cont_acertos++;
 
             }
             else {
-                erros++
+                cont_erros++
             }
         }
-        let porcentagem_acerto = ((acertos / 15) * 100).toFixed(0)
-        let porcentagem_erro = ((erros / 15) * 100).toFixed(0)
-        resultado.innerHTML = `Você acertou  ${acertos} de 15 perguntas, sua porcentagem de acertos foi ${porcentagem_acerto}%`;
+        let porcentagem_acerto = ((cont_acertos / 15) * 100).toFixed(0)
+        let porcentagem_erro = ((cont_erros / 15) * 100).toFixed(0)
+        resultado.innerHTML = `Você acertou  ${cont_acertos} de 15 perguntas, sua porcentagem de acertos foi ${porcentagem_acerto}%`;
 
-        resultado.innerHTML += `<br>Você errou  ${erros} de 15 perguntas, sua porcentagem de erro foi ${porcentagem_erro}%`;
-
+        resultado.innerHTML += `<br>Você errou  ${cont_erros} de 15 perguntas, sua porcentagem de erro foi ${porcentagem_erro}%`;
+        sessionStorage.ACERTOS = cont_acertos
+        sessionStorage.ERROS = cont_erros
+        sessionStorage.PORCENT_ACERTO = porcentagem_acerto
+        sessionStorage.PORCENT_ERRO = porcentagem_erro
 
         fetch("/quiz/salvar", {
             method: "POST",
@@ -208,8 +192,8 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                acertosServer: acertos,
-                errosServer: erros,
+                acertosServer: cont_acertos,
+                errosServer: cont_erros,
                 fk_usuarioServer: sessionStorage.ID_USUARIO
             }),
         })

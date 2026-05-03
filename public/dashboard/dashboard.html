@@ -26,7 +26,7 @@
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
-<!-- <body onload=" atualizarFeed()"> -->
+
 
 <body>
 
@@ -68,25 +68,51 @@
                 </p>
                 <div class="parametros-alerta">
                     <div class="item-regua perigo-frio">
-                        <p>Erros!</p>
-                        <p>>=8</p>
+                        <p>Porcentagem de acertos!</p>
+                        <p id="porcent_acertos"></p>%
                     </div>
                     <div class="item-regua alerta-frio">
-                        <p>Foi mal!</p>
-                        <p>
-                            <=7 
+                        <p>Porcentagem de erros!</p>
+                        <p id="porcent_erros"></p>%
+                   
 
+                    </div>
+                       <br><br><br><br><br><br><br><br><br><br><br><br>
+                </div>
+                    <div class="parametros-alerta">
+                        <div class="item-regua perigo-frio">
+                            <p>Quantidade de acertos!</p>
+                            <p id="quant_acertos"></p>
+                        </div>
+                        <div class="item-regua alerta-frio">
+                            <p>Quantidade de erros!</p>
+                            <p id="quant_erros"></p> </div>
+                        </div>
+
+                        <br>
+
+
+
+
+
+
+                    </div>
+                    <div id="graficos">
+
+                        <div class="grafico_pizza">
+                            <canvas id="myChartCanvasPizza"></canvas>
+                        </div>
+
+                        <br>
+
+                        <div class="grafico_barra">
+                            <canvas id="myChartCanvas"></canvas>
+                        </div>
                     </div>
                 </div>
 
-
-
-            </div>
-            <div id="graficos">
-                <canvas id="myChartCanvas"></canvas>
             </div>
         </div>
-    </div>
 
 
 </body>
@@ -96,59 +122,95 @@
 <script>
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-    let proximaAtualizacao;
-
     window.onload = exibirQuiz;
 
     function exibirQuiz() {
-        var acertos = Number(sessionStorage.ACERTOS)
-        var erros = Number(sessionStorage.ERROS)
-        var porcentagem_acerto = Number(sessionStorage.PORCENT_ACERTO)
-        var porcentagem_erro = Number(sessionStorage.PORCENT_ERRO)
+        var cont_acertos = (sessionStorage.ACERTOS)
+
+        var cont_erros = (sessionStorage.ERROS)
+
+        var porcentagem_acerto = (sessionStorage.PORCENT_ACERTO)
+
+        var porcentagem_erro = (sessionStorage.PORCENT_ERRO)
+
+        porcent_erros.innerHTML=porcentagem_erro;
+        quant_acertos.innerHTML=cont_acertos;
+        quant_erros.innerHTML=cont_erros;
+          var ctx = document.getElementById('myChartCanvasPizza').getContext('2d');
+        porcent_acertos.innerHTML=porcentagem_acerto;
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Acerto%', 'Erro%'],
+
+                datasets: [
+                    {
+                        label: ['%'],
+                        data: [porcentagem_acerto, porcentagem_erro],
+                        backgroundColor:
+                            ['green', 'red'],
+
+                        borderWidth: 1,
+                        barPercentage: 0.2
+                    },
+
+
+                ]
+
+            },
+
+        });
+
 
 
         var ctx = document.getElementById('myChartCanvas').getContext('2d');
-       
+
         var myChart = new Chart(ctx, {
-            type: 'bar', 
-            data: { 
-                labels: ['Resultado'], // Rótulos no eixo X
+            type: 'bar',
+            data: {
+                labels: ['Resultado'],
                 datasets: [
                     {
-                    label: 'Acerto', // Nome do conjunto de dados
-                    data: [acertos],
-                    backgroundColor: 
-                        ['green'], 
-                        borderWidth: 1, // Largura da borda das barras
+                        label: 'Acertos',
+                        data: [cont_acertos],
+                        backgroundColor:
+                            ['green'],
+                        borderWidth: 1,
                         barPercentage: 0.5
                     },
-                 {label: 'Erro', // Nome do conjunto de dados
-                    data: [erros],
-                    backgroundColor: 
-                        ['red'], 
-                        borderWidth: 1, // Largura da borda das barras
+                    {
+                        label: 'Erros',
+                        data: [cont_erros],
+                        backgroundColor:
+                            ['red'],
+                        borderWidth: 1,
                         barPercentage: 0.5
 
-                    
+
+                    }]
+
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 15,
+                        ticks: {
+                            autoSkip: false,
+                            stepSize: 1
+                        }
+
+                    }
                 }
-            ]
-
-        },
-options:{
-    scales:{
-        y:{
-            beginAtZero: true,
-            ticks:{
-                
-                stepSize:1
             }
-        }
-    }
-}
         });
+
+
+
     }
 
-    
+
+
 
 </script>

@@ -167,23 +167,24 @@ body {
   padding: 30px;
 }
 /*  Tela de evento  */ 
-.socialevento .container .boxes_evento {
+.socialevento .socialevento1 .container .boxes_evento {
    display: flex;
-  width: 100%;
-  padding: 20px 0;
+  width: 80%;
+  padding: 50px 0;
+  
 }
 
 .socialevento {
   background-color: #264a84;
   display: flex;
-  padding: 40px;
+  padding: 20px;
 }
 .socialevento1 {
   background-color: #23519b;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 20px;
 }
 
 /*  Tela de Ferramenta  */ 

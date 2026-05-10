@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon/LogoAutoSpa (1).jpg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>AutoSpa | Dashboards</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -32,7 +32,7 @@
 
     <div class="janela">
         <div class="header-left">
-            <img src="logo.png" width="130" height="130" />
+            <img src="logo.png" width="150" height="150" />
 
 
             <div class="hello">
@@ -41,19 +41,21 @@
 
             <div class="btn-nav-white">
                 <a href="./cards.html">
-                    <h3>QUIZ</h3>
+                    <h3> <img src="informacoes.png" width="20" height="20" />Quiz</h3>
+
                 </a>
             </div>
 
             <div class="btn-nav">
 
-                <h3>Gráficos</h3>
+                <h3> <img src="grafico-de-linha.png" width="20" height="20" />Gráficos</h3>
 
             </div>
 
 
+
             <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <h3> <img src="sair.png" width="17" height="17" />Sair</h3>
             </div>
 
         </div>
@@ -62,59 +64,58 @@
         <div class="dash">
             <div id="alerta">
             </div>
-            <div class="area-parametros-alerta">
-                <p class="titulo-legenda">
-                   <h2>Parâmetros do QUIZ</h2> 
-                </p>
-                <div class="parametros-alerta">
-                    <div class="item-regua perigo-frio">
-                        <p>Porcentagem de acertos!</p>
-                        <p id="porcent_acertos"></p>%
-                    </div>
-                    <div class="item-regua alerta-frio">
-                        <p>Porcentagem de erros!</p>
-                        <p id="porcent_erros"></p>%
-                   
+            <div id="graficos">
+                <!-- INDICADORES EM CIMA -->
 
+                <!-- PIZZA -->
+
+                <div class="borda_grafico">
+
+                    <div class="grafico-container">
+
+                     
+                            <div class="overlay-info">
+                                <div class="item-regua perigo-frio">
+                                    <p>Acertos </p>
+                                    <p id="porcent_acertos"></p>%
+                                </div>
+
+                                <div class="item-regua alerta-frio">
+                                    <p>Erros</p>
+                                    <p id="porcent_erros"></p>%
+                                </div>
+                          
+                        </div>
+                        <div class="grafico_pizza"></div>
+                        <canvas id="myChartCanvasPizza"></canvas>
                     </div>
-                       <br><br><br><br><br><br><br><br><br><br><br>
                 </div>
-                    <div class="parametros-alerta">
+            </div>
+            <!-- BARRA -->
+
+            <div class="borda_grafico">
+
+                <div class="grafico-container">
+
+                    <div class="overlay-info">
                         <div class="item-regua perigo-frio">
-                            <p>Quantidade de acertos!</p>
+                            <p>Acertos</p>
                             <p id="quant_acertos"></p>
                         </div>
+
                         <div class="item-regua alerta-frio">
-                            <p>Quantidade de erros!</p>
-                            <p id="quant_erros"></p> </div>
+                            <p>Erros</p>
+                            <p id="quant_erros"></p>
                         </div>
-
-                        <br>
-
-
-
-
-
-
                     </div>
-                    <div id="graficos">
-
-                        <div class="grafico_pizza">
-                            <canvas id="myChartCanvasPizza"></canvas>
-                        </div>
-
-                        
-
-                        <div class="grafico_barra">
-                            <canvas id="myChartCanvas"></canvas>
-                        </div>
+                    <div class="grafico_barra">
+                        <canvas id="myChartCanvas"></canvas>
                     </div>
                 </div>
 
             </div>
+
         </div>
-
-
 </body>
 
 </html>
@@ -122,50 +123,76 @@
 <script>
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    window.onload = exibirQuiz;
+    window.onload = obterDadosGrafico;
+    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
 
-    function exibirQuiz() {
-        var cont_acertos = (sessionStorage.ACERTOS)
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
 
-        var cont_erros = (sessionStorage.ERROS)
+    function obterDadosGrafico() {
+        console.log("ID USUARIO:", sessionStorage.ID_USUARIO)
+        fetch(`/quiz/buscar/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
 
-        var porcentagem_acerto = (sessionStorage.PORCENT_ACERTO)
 
-        var porcentagem_erro = (sessionStorage.PORCENT_ERRO)
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
 
-        porcent_erros.innerHTML=porcentagem_erro;
-        quant_acertos.innerHTML=cont_acertos;
-        quant_erros.innerHTML=cont_erros;
-          var ctx = document.getElementById('myChartCanvasPizza').getContext('2d');
-        porcent_acertos.innerHTML=porcentagem_acerto;
-        var myChart = new Chart(ctx, {
+                    plotarGrafico(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta) {
+        // como ele me retornou os valores que preciso dentro do array resposta criei a variavel dados
+        /// Estou pegando o registro mais recente [0] para exibir os valores do meu ultimo quiz feito
+        let dados = resposta[0];
+        // Extraímos a quantidade de acertos e erros que vieram do banco de dados
+        let cont_acertos = dados.acertos;
+        let cont_erros = dados.erros;
+
+
+        let porcent_acerto = ((cont_acertos / 15) * 100).toFixed(1);
+        let porcent_erro = ((cont_erros / 15) * 100).toFixed(1);
+
+        porcent_acertos.innerHTML = porcent_acerto;
+        porcent_erros.innerHTML = porcent_erro;
+        quant_acertos.innerHTML = cont_acertos;
+        quant_erros.innerHTML = cont_erros;
+
+
+        var ctxPizza = document.getElementById('myChartCanvasPizza').getContext('2d');
+
+        graficoPizza = new Chart(ctxPizza, {
             type: 'pie',
             data: {
                 labels: ['Acerto%', 'Erro%'],
-
                 datasets: [
                     {
                         label: ['%'],
-                        data: [porcentagem_acerto, porcentagem_erro],
-                        backgroundColor:
-                            ['green', 'red'],
-
+                        data: [porcent_acerto, porcent_erro],
+                        backgroundColor: ['blue', 'red'],
                         borderWidth: 1,
                         barPercentage: 0.2
                     },
-
-
                 ]
-
             },
-
         });
 
+        var ctxBarra = document.getElementById('myChartCanvas').getContext('2d');
 
-
-        var ctx = document.getElementById('myChartCanvas').getContext('2d');
-
-        var myChart = new Chart(ctx, {
+        graficoBarra = new Chart(ctxBarra, {
             type: 'bar',
             data: {
                 labels: ['Resultado'],
@@ -173,22 +200,18 @@
                     {
                         label: 'Acertos',
                         data: [cont_acertos],
-                        backgroundColor:
-                            ['green'],
+                        backgroundColor: ['blue'],
                         borderWidth: 1,
                         barPercentage: 0.5
                     },
                     {
                         label: 'Erros',
                         data: [cont_erros],
-                        backgroundColor:
-                            ['red'],
+                        backgroundColor: ['red'],
                         borderWidth: 1,
                         barPercentage: 0.5
-
-
-                    }]
-
+                    }
+                ]
             },
             options: {
                 scales: {
@@ -200,17 +223,11 @@
                             autoSkip: false,
                             stepSize: 1
                         }
-
                     }
                 }
             }
         });
-
-
-
     }
-
-
 
 
 </script>

@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon/LogoAutoSpa (1).jpg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>AutoSpa | Quiz</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
@@ -20,193 +20,202 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
-
-    <div class="janela">
-
-        <div class="header-left dash-header">
-
-            <img src="logo.png" width="130" height="130" />
-
-            <div class="hello">
-                <h2>Olá, <span id="b_usuario">usuário</span>!</h2>
-                <br>
-
-            </div>
-
-            <div class="btn-nav">
-                <h3>QUIZ</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>GRÁFICO</h3>
-                </a>
-            </div>
 
 
+<div class="janela">
 
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
+    <div class="header-left dash-header">
+
+        <img src="logo.png" width="150" height="150" />
+
+        <div class="hello">
+            <h2>Olá, <span id="b_usuario">usuário</span>!</h2>
+
+
+            <br>
 
         </div>
-        <div class="fundo_quiz">
-            <div class="quiz-container">
 
-                <h2>Quiz - Estética Automotiva</h2>
+        <div class="btn-nav">
+            <h3> <img src="informacoes.png" width="20" height="20" />Quiz</h3>
+        </div>
 
-
-                <!-- name define o grupo da pergunta é obrigatorio para radio -->
-                <!--   value:  Valor que será enviado/identificado no JavaScript -->
-
-                <div class="Questao1">
-
-                    <p>1. O que é estética automotiva?</p>
-
-                    <div class="botao1">
-                        <input type="radio" name="q1" value="certo"> Técnicas de limpeza para cuidar de qualquer
-                        veículos<br>
-                        <input type="radio" name="q1" value="errado">Arte de cuidar e conservar carros <br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao2">
-                    <p>2. Qual produto é usado para lavar o carro corretamente?</p>
-                    <div class="botao2">
-                        <input type="radio" name="q2" value="certo"> Shampoo automotivo<br>
-                        <input type="radio" name="q2" value="errado"> Detergente de cozinha<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao3">
-                    <p>3. O que é polimento automotivo?</p>
-                    <div class="botao3">
-                        <input type="radio" name="q3" value="certo"> Remoção de riscos leves<br>
-                        <input type="radio" name="q3" value="errado"> Pintar o carro e deixar brilhoso<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao4">
-
-                    <p>4. Para que serve a cera automotiva?</p>
-                    <div class="botao4">
-                        <input type="radio" name="q4" value="certo"> Proteger a pintura<br>
-                        <input type="radio" name="q4" value="errado"> Limpar motor e lataria<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao5">
-                    <p>5. O que é vitrificação?</p>
-                    <div class="botao5">
-                        <input type="radio" name="q5" value="certo"> Proteção com camada cerâmica<br>
-                        <input type="radio" name="q5" value="errado"> Lavagem simples com Shampoo de carro<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao6">
-                    <p>6. Qual pano é ideal para secar o carro?</p>
-                    <div class="botao6">
-                        <input type="radio" name="q6" value="certo"> Microfibra<br>
-                        <input type="radio" name="q6" value="errado"> Pano Premium<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao7">
-                    <p>7. O que é higienização interna?</p>
-                    <div class="botao7">
-                        <input type="radio" name="q7" value="certo"> Limpeza do interior do carro<br>
-                        <input type="radio" name="q7" value="errado"> Limpar só a lataria<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao8">
-                    <p>8. O que é detalhamento automotivo?</p>
-                    <div class="botao8">
-                        <input type="radio" name="q8" value="certo"> Limpeza detalhada completa<br>
-                        <input type="radio" name="q8" value="errado"> Lavagem rápida com pequenos detalhes<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao9">
-                    <p>9. Para que serve o pretinho?</p>
-                    <div class="botao9">
-                        <input type="radio" name="q9" value="certo"> Dar brilho aos pneus<br>
-                        <input type="radio" name="q9" value="errado"> Limpar vidro<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao10">
-                    <p>10. Qual a função do desengraxante?</p>
-                    <div class="botao10">
-                        <input type="radio" name="q10" value="certo"> Remover gordura e sujeira pesada<br>
-                        <input type="radio" name="q10" value="errado"> Dar brilho na pintura e tirar gordura<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao11">
-                    <p>11. O que é clay bar?</p>
-                    <div class="botao11">
-                        <input type="radio" name="q11" value="certo"> Remove contaminantes da pintura<br>
-                        <input type="radio" name="q11" value="errado"> Tipo de cera pra tirar sujeira<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao12">
-                    <p>12. Qual cuidado evita riscos na pintura?</p>
-                    <div class="botao12">
-                        <input type="radio" name="q12" value="certo"> Usar luva de microfibra<br>
-                        <input type="radio" name="q12" value="errado"> Usar esponja e pano comum<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao13">
-                    <p>13. O que é cristalização de pintura?</p>
-                    <div class="botao13">
-                        <input type="radio" name="q13" value="certo"> Proteção e brilho intenso<br>
-                        <input type="radio" name="q13" value="errado"> Pintura nova<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao14">
-                    <p>14. Qual produto usar nos vidros?</p>
-                    <div class="botao14">
-                        <input type="radio" name="q14" value="certo"> Limpa-vidros<br>
-                        <input type="radio" name="q14" value="errado"> Shampoo automotivo<br>
-                    </div>
-                </div>
-                <br>
-                <div class="Questao15">
-                    <p>15. Qual a frequência ideal de lavagem?</p>
-                    <div class="botao15">
-                        <input type="radio" name="q15" value="certo"> 1 vez por semana<br>
-                        <input type="radio" name="q15" value="errado"> 1 vez por ano<br>
-                    </div>
-                </div>
-                <br><br>
-                <div class id="button_container">
-                    <button onclick="corrigirQuiz()">Finalizar</button>
-
-                    <button onclick="tentarNovamente()">Tentar novamente</button>
-                </div>
-
-                <h3 id="resultado"></h3>
-                <h3 id="aviso"></h3>
-
-
-            </div>
+        <div class="btn-nav-white">
+            <a href="./dashboard.html">
+                <h3> <img src="grafico-de-linha.png" width="20" height="20" />Gráficos</h3>
+            </a>
         </div>
 
 
 
+        <div class="btn-logout" onclick="limparSessao()">
+            <h3> <img src="sair.png" width="17" height="17" />Sair</h3>
+        </div>
 
     </div>
+    <div class="fundo_quiz">
+        <div class="quiz-container">
+
+            <h2>Quiz - Estética Automotiva</h2>
+
+
+            <!-- name define o grupo da pergunta é obrigatorio para radio -->
+            <!--   value:  Valor que será enviado/identificado no JavaScript -->
+
+            <div class="Questao1">
+
+                <p>1. O que é estética automotiva?</p>
+
+                <div class="botao1">
+                    <input type="radio" name="q1" value="errado">Arte de cuidar e conservar carros
+                    veículos<br>
+                    <input type="radio" name="q1" value="certo"> Técnicas de limpeza para cuidar de qualquer<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao2">
+                <p>2. Qual produto é usado para lavar o carro corretamente?</p>
+                <div class="botao2">
+                    <input type="radio" name="q2" value="certo"> Shampoo automotivo<br>
+                    <input type="radio" name="q2" value="errado"> Detergente de cozinha<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao3">
+                <p>3. O que é polimento automotivo?</p>
+                <div class="botao3">
+                    <input type="radio" name="q3" value="certo"> Remoção de riscos leves<br>
+                    <input type="radio" name="q3" value="errado"> Pintar o carro e deixar brilhoso<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao4">
+
+                <p>4. Para que serve a cera automotiva?</p>
+                <div class="botao4">
+
+                    <input type="radio" name="q4" value="errado"> Limpar motor e lataria<br>
+                    <input type="radio" name="q4" value="certo"> Proteger a pintura<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao5">
+                <p>5. O que é vitrificação?</p>
+                <div class="botao5">
+                    
+                    <input type="radio" name="q5" value="errado"> Lavagem simples com Shampoo de carro<br>
+                    <input type="radio" name="q5" value="certo"> Proteção com camada cerâmica<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao6">
+                <p>6. Qual pano é ideal para secar o carro?</p>
+                <div class="botao6">
+                    <input type="radio" name="q6" value="certo"> Microfibra<br>
+                    <input type="radio" name="q6" value="errado"> Pano Premium<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao7">
+                <p>7. O que é higienização interna?</p>
+                <div class="botao7">
+                    <input type="radio" name="q7" value="certo"> Limpeza do interior do carro<br>
+                    <input type="radio" name="q7" value="errado"> Limpar só a lataria<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao8">
+                <p>8. O que é detalhamento automotivo?</p>
+                <div class="botao8">
+                
+                    <input type="radio" name="q8" value="errado"> Lavagem rápida com pequenos detalhes<br>
+                        <input type="radio" name="q8" value="certo"> Limpeza detalhada completa<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao9">
+                <p>9. Para que serve o pretinho?</p>
+                <div class="botao9">
+                    <input type="radio" name="q9" value="certo"> Dar brilho aos pneus<br>
+                    <input type="radio" name="q9" value="errado"> Limpar vidro<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao10">
+                <p>10. Qual a função do desengraxante?</p>
+                <div class="botao10">
+                    <input type="radio" name="q10" value="certo"> Remover gordura e sujeira pesada<br>
+                    <input type="radio" name="q10" value="errado"> Dar brilho na pintura e tirar gordura<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao11">
+                <p>11. O que é clay bar?</p>
+                <div class="botao11">
+                    
+                    <input type="radio" name="q11" value="errado"> Tipo de cera pra tirar sujeira<br>
+                    <input type="radio" name="q11" value="certo"> Remove contaminantes da pintura<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao12">
+                <p>12. Qual cuidado evita riscos na pintura?</p>
+                <div class="botao12">
+                    
+                    <input type="radio" name="q12" value="errado"> Usar esponja e pano comum<br>
+                    <input type="radio" name="q12" value="certo"> Usar luva de microfibra<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao13">
+                <p>13. O que é cristalização de pintura?</p>
+                <div class="botao13">
+                  
+                    <input type="radio" name="q13" value="errado"> Pintura nova<br>
+                      <input type="radio" name="q13" value="certo"> Proteção e brilho intenso<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao14">
+                <p>14. Qual produto usar nos vidros?</p>
+                <div class="botao14">
+                    <input type="radio" name="q14" value="certo"> Limpa-vidros<br>
+                    <input type="radio" name="q14" value="errado"> Shampoo automotivo<br>
+                </div>
+            </div>
+            <br>
+            <div class="Questao15">
+                <p>15. Qual a frequência ideal de lavagem?</p>
+                <div class="botao15">
+                    <input type="radio" name="q15" value="certo"> 1 vez por semana<br>
+                    <input type="radio" name="q15" value="errado"> 1 vez por ano<br>
+                </div>
+            </div>
+            <br><br>
+            <div class="button_container">
+                <button onclick="corrigirQuiz()">Finalizar</button>
+
+                <button onclick="tentarNovamente()">Tentar novamente</button>
+            </div>
+
+            <h3 id="resultado"></h3>
+            <h3 id="aviso"></h3>
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
 
 
 
 </body>
 
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
 
     function corrigirQuiz() {
@@ -232,47 +241,16 @@
                 resultado.innerHTML += `Alguma questão não foi respondida`
             }
         }
-        /*
-                 function submeter() {
-                const options = document.getElementsByName("option"); // recupera alternativas no html
-        
-                let hasChecked = false
-                for (let i = 0; i < options.length; i++) {
-                    if (options[i].checked) {
-                        hasChecked = true
-                        break
-                    }
-                }
-        
-                if (!hasChecked) {
-                    alert("Não há alternativas escolhidas. Escolha uma opção.")
-                } else {
-                    btnSubmeter.disabled = true
-                    btnProx.disabled = false
-        
-                    habilitarAlternativas(false)
-        
-                    checarResposta()
-                }
-            }
-        */
 
 
+        let porcentagem_acerto = ((cont_acertos / 15) * 100).toFixed(1)
+        let porcentagem_erro = ((cont_erros / 15) * 100).toFixed(1)
 
-
-        let porcentagem_acerto = ((cont_acertos / 15) * 100).toFixed(0)
-        let porcentagem_erro = ((cont_erros / 15) * 100).toFixed(0)
-          
         resultado.innerHTML = `Você acertou  ${cont_acertos} de 15 perguntas, sua porcentagem de acertos foi ${porcentagem_acerto}%`;
 
         resultado.innerHTML += `<br>Você errou  ${cont_erros} de 15 perguntas, sua porcentagem de erro foi ${porcentagem_erro}%`;
-        
-       
-        
-        sessionStorage.ACERTOS = cont_acertos
-        sessionStorage.ERROS = cont_erros
-        sessionStorage.PORCENT_ACERTO = porcentagem_acerto
-        sessionStorage.PORCENT_ERRO = porcentagem_erro
+
+
 
         fetch("/quiz/salvar", {
             method: "POST",

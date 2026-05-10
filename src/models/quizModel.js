@@ -10,26 +10,32 @@ function salvar(acertos, erros, fk_usuario) {
     return database.executar(instrucaoSql);
 }
 
-module.exports = {
-    salvar
-};
 
-/*
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(nome, email, senha,cpf) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha,cpf);
+    /*  'ORDER BY'
+       O banco de dados neste caso armazena várias tentativas do usuário. 
+       Para o gráfico da Dashboard, quero apenas a MAIS RECENTE.
+        ORDER BY idResultado DESC: Organiza do maior ID (último inserido) para o menor.
+        LIMIT 1: Garante que o banco me retorne apenas 1 linha (a minha última tentativa).
     
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
-    var instrucaoSql = `
-        INSERT INTO usuario (nome, email, senha,cpf) VALUES ('${nome}', '${email}', '${senha}','${cpf}');
-    `;
+
+    console.log("Executando a instrução SQL:\n " + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+*/
+function buscar(idUsuario) {
+
+    var instrucaoSql =
+     `SELECT 
+     acertos, erros
+     FROM Resultado_quiz WHERE fk_usuario = ${idUsuario} 
+     ORDER BY idquiz DESC LIMIT 1`;
+
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+
 module.exports = {
-    autenticar,
-    cadastrar
+    salvar,
+    buscar
 };
-*/

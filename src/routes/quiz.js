@@ -7,27 +7,14 @@ router.post("/salvar",function(req, res) {
     quizController.salvar(req, res);
 });
 
-module.exports = router;
+//  GET trás os dados que o gráfico vai exibir.
+// O ":idUsuario" é um parâmetro de rota (req.params).
 
 
-/*
-var express = require("express");
-var router = express.Router();
-
-var usuarioController = require("../controllers/usuarioController");
-
-//Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-router.post("/cadastrar", function (req, res) {
-    usuarioController.cadastrar(req, res);
+router.get("/buscar/:idUsuario", function (req, res) {
+    quizController.buscar(req, res);
 })
 
-router.post("/autenticar", function (req, res) {
-    usuarioController.autenticar(req, res);
-});
-
 module.exports = router;
 
 
-
-
-*/

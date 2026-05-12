@@ -119,108 +119,231 @@
 </body>
 
 </html>
-
 <script>
 
+   
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    // Quando a página carregar, vai chama a função obterDadosGrafico()
     window.onload = obterDadosGrafico;
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+
+
+    // Esta função *obterDadosGrafico* busca os últimos dados inseridos.
     // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
     // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-
+   
+    // ELA É FUNÇÃO QUE VAI BUSCAR OS DADOS NO BACK-END
+   
     function obterDadosGrafico() {
+
+        // Mostra no console o ID do usuário
         console.log("ID USUARIO:", sessionStorage.ID_USUARIO)
-        fetch(`/quiz/buscar/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
 
+        // Faz uma requisição GET para buscar os dados do quiz do usuário
+        fetch(`/quiz/buscar/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' })
 
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(resposta);
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
+            // Quando a resposta chegar
+            .then(function (response) {
 
-                    plotarGrafico(resposta);
+                 
+                if (response.ok) {
 
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
+                    // Converte para JSON
+                    response.json().then(function (resposta) {
+
+                        // Vai mostrar os dados recebidos pelo console
+                        console.log(resposta);
+
+                        //  dados formatados
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        // Aqui Inverte a ordem do array
+                        //  deixa o registro mais recente na posição [0]
+                        resposta.reverse();
+
+                        // Envia os dados para a função que cria os gráficos
+                        plotarGrafico(resposta);
+
+                    });
+
+                } else {
+
+                   
+                    console.error('Nenhum dado encontrado ou erro na API');
+
+                }
+            })
+
+            // caso aconteça erro no fetch
             .catch(function (error) {
+
                 console.error(`Erro: ${error.message}`);
+
             });
     }
 
+
+
+
+   //  *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    
     function plotarGrafico(resposta) {
-        // como ele me retornou os valores que preciso dentro do array resposta criei a variavel dados
-        /// Estou pegando o registro mais recente [0] para exibir os valores do meu ultimo quiz feito
+
+        // Pega o primeiro registro do array
+        // Como o array foi invertido, esse será o quiz mais recente
         let dados = resposta[0];
-        // Extraímos a quantidade de acertos e erros que vieram do banco de dados
+
+
+
+        
         let cont_acertos = dados.acertos;
         let cont_erros = dados.erros;
 
 
+
+        
         let porcent_acerto = ((cont_acertos / 15) * 100).toFixed(1);
+
+        
         let porcent_erro = ((cont_erros / 15) * 100).toFixed(1);
 
+
+
+      
         porcent_acertos.innerHTML = porcent_acerto;
         porcent_erros.innerHTML = porcent_erro;
+
+
+
+        
         quant_acertos.innerHTML = cont_acertos;
         quant_erros.innerHTML = cont_erros;
 
 
+
+
+        // Seleciona o canvas do gráfico de pizza
         var ctxPizza = document.getElementById('myChartCanvasPizza').getContext('2d');
 
+
+
+        // Cria o gráfico usando Chart.js
         graficoPizza = new Chart(ctxPizza, {
+
+            
             type: 'pie',
+
+            
             data: {
+
+             
                 labels: ['Acerto%', 'Erro%'],
+
                 datasets: [
                     {
+                        
                         label: ['%'],
+
+                       
                         data: [porcent_acerto, porcent_erro],
+
+                      
                         backgroundColor: ['blue', 'red'],
+
+                       
                         borderWidth: 1,
+
+                      
                         barPercentage: 0.2
                     },
                 ]
             },
         });
 
+
+
+
+       
+        // Seleciona o canvas do gráfico de barras
         var ctxBarra = document.getElementById('myChartCanvas').getContext('2d');
 
+
+
+        
         graficoBarra = new Chart(ctxBarra, {
+
+           
             type: 'bar',
+
             data: {
+
+                // Label principal no eixo X
                 labels: ['Resultado'],
+
                 datasets: [
+
+                    
                     {
                         label: 'Acertos',
+
+                       
                         data: [cont_acertos],
+
+                        
                         backgroundColor: ['blue'],
+
                         borderWidth: 1,
+
+                        
                         barPercentage: 0.5
                     },
+
+
+
+                  
                     {
                         label: 'Erros',
+
+                       
                         data: [cont_erros],
+
+                       
                         backgroundColor: ['red'],
+
                         borderWidth: 1,
+
+                      
                         barPercentage: 0.5
                     }
                 ]
             },
+
+
+
+          
             options: {
+
                 scales: {
+
+                 
                     y: {
+
+                       
                         beginAtZero: true,
+
+                    
                         min: 0,
+
+                       
                         max: 15,
+
+                      
                         ticks: {
+
+                            // Não vai pula  os números Ex: 2,4,6,8 .... 
                             autoSkip: false,
+
+                            // Vai de 1 em 1
                             stepSize: 1
                         }
                     }
@@ -228,6 +351,5 @@
             }
         });
     }
-
 
 </script>

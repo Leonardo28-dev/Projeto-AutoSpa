@@ -59,9 +59,6 @@
             <h2>Quiz - Estética Automotiva</h2>
 
 
-            <!-- name define o grupo da pergunta é obrigatorio para radio -->
-            <!--   value:  Valor que será enviado/identificado no JavaScript -->
-
             <div class="Questao1">
 
                 <p>1. O que é estética automotiva?</p>
@@ -102,7 +99,7 @@
             <div class="Questao5">
                 <p>5. O que é vitrificação?</p>
                 <div class="botao5">
-                    
+
                     <input type="radio" name="q5" value="errado"> Lavagem simples com Shampoo de carro<br>
                     <input type="radio" name="q5" value="certo"> Proteção com camada cerâmica<br>
                 </div>
@@ -127,9 +124,9 @@
             <div class="Questao8">
                 <p>8. O que é detalhamento automotivo?</p>
                 <div class="botao8">
-                
+
                     <input type="radio" name="q8" value="errado"> Lavagem rápida com pequenos detalhes<br>
-                        <input type="radio" name="q8" value="certo"> Limpeza detalhada completa<br>
+                    <input type="radio" name="q8" value="certo"> Limpeza detalhada completa<br>
                 </div>
             </div>
             <br>
@@ -152,7 +149,7 @@
             <div class="Questao11">
                 <p>11. O que é clay bar?</p>
                 <div class="botao11">
-                    
+
                     <input type="radio" name="q11" value="errado"> Tipo de cera pra tirar sujeira<br>
                     <input type="radio" name="q11" value="certo"> Remove contaminantes da pintura<br>
                 </div>
@@ -161,7 +158,7 @@
             <div class="Questao12">
                 <p>12. Qual cuidado evita riscos na pintura?</p>
                 <div class="botao12">
-                    
+
                     <input type="radio" name="q12" value="errado"> Usar esponja e pano comum<br>
                     <input type="radio" name="q12" value="certo"> Usar luva de microfibra<br>
                 </div>
@@ -170,9 +167,9 @@
             <div class="Questao13">
                 <p>13. O que é cristalização de pintura?</p>
                 <div class="botao13">
-                  
+
                     <input type="radio" name="q13" value="errado"> Pintura nova<br>
-                      <input type="radio" name="q13" value="certo"> Proteção e brilho intenso<br>
+                    <input type="radio" name="q13" value="certo"> Proteção e brilho intenso<br>
                 </div>
             </div>
             <br>
@@ -209,85 +206,196 @@
 
 
 </div>
-
-
-
 </body>
 
 <script>
+
+
+    // Pega o nome salvo na sessionStorage e uso para aparecer o nome do meu usuário
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
 
+
+
+   
+
     function corrigirQuiz() {
+
+
+
         let cont_acertos = 0;
         let cont_erros = 0;
 
-        let perguntas = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12", "q13", "q14", "q15"]
+
+
+        // Array com minhas pergunta
+        let perguntas = [
+            "q1", "q2", "q3", "q4", "q5",
+            "q6", "q7", "q8", "q9", "q10",
+            "q11", "q12", "q13", "q14", "q15"
+        ];
+        // Percorri todas as perguntas
         for (let i = 0; i < perguntas.length; i++) {
-            let pergunta = perguntas[i]  /* Neste caso estou pegando a pergunta  atual da minha lista    */
+
+            // Guardei o nome da pergunta atual
+            let pergunta = perguntas[i];
+
+
+
+            // Aqui vou buscar todos os radio buttons daquela minha pergunta
+            // Exemplo:
+            // q1 -> pega todas as opções da questão 1 sendo certa ou errada
             let opcoes = document.getElementsByName(pergunta);
-            let respondeu = false;
+            let respondeu = false
+            // Este for vai percorrer todas as minhas opções da questão
+            // Nesse caso existem apenas 2 opções(certa ou errada)
             for (let j = 0; j < 2; j++) {
+
+                //  checked Verifica se a opção foi marcada
                 if (opcoes[j].checked) {
+
+
                     respondeu = true;
+
+
+
+                    // Verifica se a resposta está correta
                     if (opcoes[j].value == "certo") {
+
+
                         cont_acertos++;
+
                     } else {
+
+
                         cont_erros++;
+
                     }
                 }
             }
+
+
+
+            //Se for diferente de respondeu
             if (!respondeu) {
-                resultado.innerHTML += `Alguma questão não foi respondida`
+
+
+                resultado.innerHTML += `Alguma questão não foi respondida`;
+
             }
         }
 
 
-        let porcentagem_acerto = ((cont_acertos / 15) * 100).toFixed(1)
-        let porcentagem_erro = ((cont_erros / 15) * 100).toFixed(1)
-
-        resultado.innerHTML = `Você acertou  ${cont_acertos} de 15 perguntas, sua porcentagem de acertos foi ${porcentagem_acerto}%`;
-
-        resultado.innerHTML += `<br>Você errou  ${cont_erros} de 15 perguntas, sua porcentagem de erro foi ${porcentagem_erro}%`;
 
 
 
+
+        let porcentagem_acerto = ((cont_acertos / 15) * 100).toFixed(1);
+
+        let porcentagem_erro = ((cont_erros / 15) * 100).toFixed(1);
+
+
+
+
+
+        resultado.innerHTML =
+            `Você acertou ${cont_acertos} de 15 perguntas,
+            sua porcentagem de acertos foi ${porcentagem_acerto}%`;
+
+
+
+
+        resultado.innerHTML +=
+            `<br>Você errou ${cont_erros} de 15 perguntas,
+            sua porcentagem de erro foi ${porcentagem_erro}%`;
+
+
+
+
+
+        //   ENVIO DOS DADOS PARA O BACK-END
+
+
+        // Faz uma requisição POST para salvar o quiz
         fetch("/quiz/salvar", {
+
+            // Método HTTP
             method: "POST",
+
+            // Tipo do conteúdo enviado
             headers: {
                 "Content-Type": "application/json",
             },
+
+
+
+            // Dados enviados para o servidor
+            // JSON.stringify transforma o objeto em JSON
             body: JSON.stringify({
+
+
                 acertosServer: cont_acertos,
+
+
                 errosServer: cont_erros,
+
+                // ID do usuário salvo na minha sessão
                 fk_usuarioServer: sessionStorage.ID_USUARIO
             }),
         })
 
+
+
+
+
+
             .then(function (resposta) {
+
                 console.log("resposta: ", resposta);
 
+
+
+                // Verifica se salvou 
                 if (resposta.ok) {
+
                     console.log("Quiz salvo com sucesso!");
 
                 } else {
+
+                    // Caso ñ salvou
                     throw "Houve um erro ao salvar o quiz!";
+
                 }
             })
+
+
+
+
+
             .catch(function (resposta) {
+
                 console.log(`#ERRO: ${resposta}`);
+
             });
+
+
 
         return false;
 
     }
+
+
+
+
+
+
+
     function tentarNovamente() {
+
+        // Recarrega a página
+       
         window.location.reload()
+
     }
 
-
-
-
 </script>
-
-</html>

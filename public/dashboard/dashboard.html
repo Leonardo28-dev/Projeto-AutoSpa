@@ -52,6 +52,12 @@
 
             </div>
 
+            <div class="btn-nav-white">
+                <a href="./ranking.html">
+                    <h3> <img src="ranking.png" width="20" height="20" />Ranking</h3>
+                </a>
+            </div>
+
 
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -62,8 +68,10 @@
 
 
         <div class="dash">
+
             <div id="alerta">
             </div>
+
             <div id="graficos">
                 <!-- INDICADORES EM CIMA -->
 
@@ -72,19 +80,20 @@
                 <div class="borda_grafico">
 
                     <div class="grafico-container">
+                        <div class="titulo-grafico">
+                            <h2>Desempenho em porcentagem</h2>
+                        </div>
+                        <div class="overlay-info">
+                            <div class="item-regua perigo-frio">
+                                <p>Acertos </p>
+                                <p id="porcent_acertos"></p>%
+                            </div>
 
-                     
-                            <div class="overlay-info">
-                                <div class="item-regua perigo-frio">
-                                    <p>Acertos </p>
-                                    <p id="porcent_acertos"></p>%
-                                </div>
+                            <div class="item-regua alerta-frio">
+                                <p>Erros</p>
+                                <p id="porcent_erros"></p>%
+                            </div>
 
-                                <div class="item-regua alerta-frio">
-                                    <p>Erros</p>
-                                    <p id="porcent_erros"></p>%
-                                </div>
-                          
                         </div>
                         <div class="grafico_pizza"></div>
                         <canvas id="myChartCanvasPizza"></canvas>
@@ -96,7 +105,9 @@
             <div class="borda_grafico">
 
                 <div class="grafico-container">
-
+                    <div class="titulo-grafico">
+                        <h2>Quantidade de acertos e erros</h2>
+                    </div>
                     <div class="overlay-info">
                         <div class="item-regua perigo-frio">
                             <p>Acertos</p>
@@ -121,7 +132,7 @@
 </html>
 <script>
 
-   
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     // Quando a página carregar, vai chama a função obterDadosGrafico()
@@ -131,12 +142,12 @@
     // Esta função *obterDadosGrafico* busca os últimos dados inseridos.
     // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
     // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-   
+
     // ELA É FUNÇÃO QUE VAI BUSCAR OS DADOS NO BACK-END
-   
+
     function obterDadosGrafico() {
 
-        // Mostra no console o ID do usuário
+        // Mostro no console o ID do usuário
         console.log("ID USUARIO:", sessionStorage.ID_USUARIO)
 
         // Faz uma requisição GET para buscar os dados do quiz do usuário
@@ -145,7 +156,7 @@
             // Quando a resposta chegar
             .then(function (response) {
 
-                 
+
                 if (response.ok) {
 
                     // Converte para JSON
@@ -168,13 +179,13 @@
 
                 } else {
 
-                   
+
                     console.error('Nenhum dado encontrado ou erro na API');
 
                 }
             })
 
-            // caso aconteça erro no fetch
+            // Erro no fech
             .catch(function (error) {
 
                 console.error(`Erro: ${error.message}`);
@@ -185,8 +196,8 @@
 
 
 
-   //  *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    
+    //  *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+
     function plotarGrafico(resposta) {
 
         // Pega o primeiro registro do array
@@ -195,27 +206,27 @@
 
 
 
-        
+
         let cont_acertos = dados.acertos;
         let cont_erros = dados.erros;
+        let total = cont_acertos + cont_erros;
 
 
 
-        
-        let porcent_acerto = ((cont_acertos / 15) * 100).toFixed(1);
-
-        
-        let porcent_erro = ((cont_erros / 15) * 100).toFixed(1);
+        let porcent_acerto = ((cont_acertos / total) * 100).toFixed(0);
 
 
+        let porcent_erro = ((cont_erros / total) * 100).toFixed(0);
 
-      
+
+
+
         porcent_acertos.innerHTML = porcent_acerto;
         porcent_erros.innerHTML = porcent_erro;
 
 
 
-        
+
         quant_acertos.innerHTML = cont_acertos;
         quant_erros.innerHTML = cont_erros;
 
@@ -230,30 +241,30 @@
         // Cria o gráfico usando Chart.js
         graficoPizza = new Chart(ctxPizza, {
 
-            
+
             type: 'pie',
 
-            
+
             data: {
 
-             
+
                 labels: ['Acerto%', 'Erro%'],
 
                 datasets: [
                     {
-                        
+
                         label: ['%'],
 
-                       
+
                         data: [porcent_acerto, porcent_erro],
 
-                      
+
                         backgroundColor: ['blue', 'red'],
 
-                       
+
                         borderWidth: 1,
 
-                      
+
                         barPercentage: 0.2
                     },
                 ]
@@ -263,16 +274,16 @@
 
 
 
-       
+
         // Seleciona o canvas do gráfico de barras
         var ctxBarra = document.getElementById('myChartCanvas').getContext('2d');
 
 
 
-        
+
         graficoBarra = new Chart(ctxBarra, {
 
-           
+
             type: 'bar',
 
             data: {
@@ -282,37 +293,37 @@
 
                 datasets: [
 
-                    
+
                     {
                         label: 'Acertos',
 
-                       
+
                         data: [cont_acertos],
 
-                        
+
                         backgroundColor: ['blue'],
 
                         borderWidth: 1,
 
-                        
+
                         barPercentage: 0.5
                     },
 
 
 
-                  
+
                     {
                         label: 'Erros',
 
-                       
+
                         data: [cont_erros],
 
-                       
+
                         backgroundColor: ['red'],
 
                         borderWidth: 1,
 
-                      
+
                         barPercentage: 0.5
                     }
                 ]
@@ -320,24 +331,24 @@
 
 
 
-          
+
             options: {
 
                 scales: {
 
-                 
+
                     y: {
 
-                       
+
                         beginAtZero: true,
 
-                    
+
                         min: 0,
 
-                       
+
                         max: 15,
 
-                      
+
                         ticks: {
 
                             // Não vai pula  os números Ex: 2,4,6,8 .... 

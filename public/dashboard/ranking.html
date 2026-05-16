@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/LogoAutoSpa (1).jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoSpa | Quiz</title>
+
+
+    <link rel="stylesheet" href="./../css/dashboards.css">
+    <link rel="stylesheet" href="./../css/estilo.css" />
+
+    <script src="../js/sessao.js"></script>
+    <script src="../js/alerta.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="janela">
+
+        <div class="header-left dash-header">
+
+            <img src="logo.png" width="150" height="150" />
+
+            <div class="hello">
+                <h2>Olá, <span id="b_usuario">usuário</span>!</h2>
+
+
+                <br>
+
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./cards.html">
+                    <h3> <img src="informacoes.png" width="20" height="20" />Quiz</h3>
+
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3> <img src="grafico-de-linha.png" width="20" height="20" />Gráficos</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./ranking.html">
+                    <h3> <img src="ranking.png" width="20" height="20" />Ranking</h3>
+                </a>
+            </div>
+
+
+
+
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3> <img src="sair.png" width="17" height="17" />Sair</h3>
+            </div>
+
+        </div>
+        <div class="fundo_ranking">
+
+            <div class="ranking-title">
+                RANKING DE USUÁRIOS
+
+            </div>
+            <div class="podio-container">
+                <div class="podio-segundo">
+                    <h2>🥈</h2>
+                   
+                </div>
+                <div class="podio-primeiro">
+                    <h2>🥇</h2>
+                   
+                </div>
+                <div class="podio-terceiro">
+                    <h2>🥉</h2>
+                  
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+</script>

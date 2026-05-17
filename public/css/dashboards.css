@@ -19,14 +19,16 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.titulo-grafico{
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- font-size: 14px;
+
+.titulo-grafico {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
 }
+
 #graficos {
   position: relative;
   display: flex;
-  
+
 
   justify-content: center;
   align-items: center;
@@ -40,7 +42,7 @@ body {
 .borda_grafico {
   border: 4px solid rgb(14, 48, 107);
   border-radius: 50px;
- 
+
   padding: 20px;
   background-color: rgb(255, 255, 255);
   width: 480px;
@@ -55,9 +57,9 @@ body {
 .overlay-info {
   position: absolute;
   top: -120px;
-background-color: #292f5f;
-border:#292f5f solid 6px;
- border-radius:60px;
+  background-color: #292f5f;
+  border: #292f5f solid 6px;
+  border-radius: 60px;
   display: flex;
   flex-direction: row;
   gap: 95px;
@@ -67,10 +69,11 @@ border:#292f5f solid 6px;
 .grafico_barra {
   display: flex;
   align-items: center;
-  
+
   width: 510px;
   height: 380px;
 }
+
 .grafico_pizza {
   display: flex;
   align-items: center;
@@ -116,10 +119,11 @@ border:#292f5f solid 6px;
 
 .perigo-frio {
   background-color: blue;
-  border:#000000 solid 2px;
+  border: #000000 solid 2px;
 }
+
 .alerta-frio {
-  border:#000000 solid 2px;
+  border: #000000 solid 2px;
   background-color: #ac1616;
 }
 
@@ -133,14 +137,14 @@ border:#292f5f solid 6px;
 
 /* QUIZ */
 .quiz-container {
-  font-size: 18px;
+  font-size: 20px;
   color: white;
   display: flex;
   margin-left: 10%;
   align-items: center;
   flex-direction: column;
- font-family: 'Exo 2', sans-serif;
- background-color: #003272;
+  font-family: Times New;
+  background-color: #003272;
 }
 
 .button_container button {
@@ -168,7 +172,7 @@ border:#292f5f solid 6px;
   display: flex;
   gap: 8px;
   background-color: #303077;
- border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -176,7 +180,7 @@ border:#292f5f solid 6px;
 .botao2 {
   display: flex;
   gap: 8px;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   background-color: #303077;
   align-items: center;
@@ -189,7 +193,7 @@ border-radius: 15px;
   gap: 8px;
   background-color: #303077;
   border: #ffffff solid 2px;
-border-radius: 15px;
+  border-radius: 15px;
   align-items: center;
 }
 
@@ -198,7 +202,7 @@ border-radius: 15px;
   display: flex;
   background-color: #303077;
   gap: 8px;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -208,7 +212,7 @@ border-radius: 15px;
   display: flex;
   gap: 8px;
   background-color: #303077;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -216,7 +220,7 @@ border-radius: 15px;
 .botao6 {
   display: flex;
   background-color: #303077;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   gap: 8px;
   align-items: center;
@@ -228,7 +232,7 @@ border-radius: 15px;
   display: flex;
   gap: 8px;
   background-color: #303077;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -237,7 +241,7 @@ border-radius: 15px;
   display: flex;
   gap: 8px;
   background-color: #303077;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -247,14 +251,14 @@ border-radius: 15px;
   gap: 8px;
   background-color: #303077;
   border: #ffffff solid 2px;
-border-radius: 15px;
+  border-radius: 15px;
   align-items: center;
 }
 
 .botao10 {
   display: flex;
   gap: 8px;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   background-color: #303077;
   align-items: center;
@@ -274,7 +278,7 @@ border-radius: 15px;
   display: flex;
   gap: 8px;
   background-color: #303077;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -284,7 +288,7 @@ border-radius: 15px;
   display: flex;
   gap: 8px;
   background-color: #303077;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -294,7 +298,7 @@ border-radius: 15px;
   display: flex;
   gap: 8px;
   background-color: #303077;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -305,7 +309,7 @@ border-radius: 15px;
   display: flex;
   gap: 8px;
   background-color: #303077;
-border-radius: 15px;
+  border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
 
@@ -433,65 +437,75 @@ canvas {
 }
 
 /*  RANKING */
-.fundo_ranking{
+.fundo_ranking {
   background-image: linear-gradient(to bottom, rgb(0, 30, 151), rgb(31, 38, 135), rgb(59, 28, 172));
   width: 100%;
   min-height: 100vh;
-  box-sizing: border-box;
+  flex-direction: end;
   display: flex;
   color: #ffffff;
   align-items: center;
- 
+
 
 }
 
-.ranking-title{
-  
+.ranking-title {
+ font-family: Times New;
+  background-color: #3141b8;
+  font-size: 40px;
 
-  position: relative;
-  font-size: 30PX;
-  width: 80%;
-  height: 200px;
-  left: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  width: 100%;
 
-.podio-container{
- 
-  margin-right: 180px;
- align-items: end;
-  justify-content: center;
-  display: flex;
-
-   gap: 90px;
-  height: 310px;
-
-  
-}
-.podio-segundo{
-  background-color: #3b3e82;
- height: 160px;
+  height: 50px;
  border: #000000 solid 3px;
- padding: 40px;
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+.podio-container {
+
+  display: flex;
+
+  justify-content: center;
+  left: 100%;
+  align-items: end;
+  color: #000000;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  gap: 30px;
+
+  width: 100%;
+
+
+}
+
+.podio-segundo {
+  background-color: #3b3e82;
+  height: 160px;
+  border: #000000 solid 3px;
+  padding: 40px;
+  right: 60px;
   display: flex;
 }
 
-.podio-primeiro{
+.podio-primeiro {
   background-color: #ffffff;
- height: 200px;
+  height: 200px;
   border: #000000 solid 3px;
- padding: 40px;
- box-shadow: #000000 ;
+  padding: 40px;
+  box-shadow: #000000;
   display: flex;
 
 }
 
-.podio-terceiro{
+.podio-terceiro {
   background-color: #f60606;
- height: 100px;
+  height: 80px;
   border: #000000 solid 3px;
- padding: 40px;
+  padding: 40px;
+
   display: flex;
 }

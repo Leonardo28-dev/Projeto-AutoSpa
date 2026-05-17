@@ -64,24 +64,28 @@
             </div>
 
         </div>
-        <div class="fundo_ranking">
-
-            <div class="ranking-title">
-                RANKING DE USUÁRIOS
+          <div class="ranking-title">
+           Ranking dos Usuários
 
             </div>
+        <div class="fundo_ranking">
+
+          
             <div class="podio-container">
                 <div class="podio-segundo">
                     <h2>🥈</h2>
-                   
+                    <span id="segundo"></span>
+
                 </div>
                 <div class="podio-primeiro">
                     <h2>🥇</h2>
-                   
+                    <span id="primeiro"></span>
+
                 </div>
                 <div class="podio-terceiro">
                     <h2>🥉</h2>
-                  
+                    <span id="terceiro"></span>
+
                 </div>
 
             </div>
@@ -98,5 +102,42 @@
 </html>
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+// Função que buscar o ranking no backend
+    function buscarRanking() {
+         // Faz uma requisição para a rota /ranking/listar
+        fetch("/ranking/listar")
+           // Quando a resposta chegar do backend
+            .then(function (resposta) {
+                // CONVERTO A RESPOSTA PARA JSON!!
+                resposta.json().then(function (dados) {
+                    // Nesse caso dados é o meu array
+                    console.log(dados);
+                    // dados[0].nome ----> primeiro nome na primeira posição do meu array e assim no restante
+                    primeiro.innerHTML = `
+                    
+                    ${dados[0].nome}
+                    ${dados[0].acertos}
+                    
+                    
+                    `
+                    segundo.innerHTML = `
+                    ${dados[1].nome}
+                    ${dados[1].acertos}
+                    
+                    
+                    `
+                    terceiro.innerHTML = `
+                    ${dados[2].nome}
+                    ${dados[2].acertos}
+                    
+                    
+                    `
+                });
+            });
 
+
+
+    }
+      // Chamao a função automaticamente quando a página abre
+    buscarRanking();
 </script>

@@ -67,7 +67,7 @@ body {
   height: var(--tamanho-banner);
   color: rgb(255, 255, 255);
   background-image: url('../assets/imgs/fundo.jpg');
-   border:#141d6d solid 4px;
+   border:#141d6d solid 2px;
   filter: brightness(0.9);
   background-size: cover;
 }
@@ -150,7 +150,17 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-direction: row;
   padding: -10px 0;
+}
+.titulo-produto{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.texto-produto{
+  display: flex;
+  flex-direction: column;
 }
 .socialproduto {
   background-color: #264a84;
@@ -166,6 +176,7 @@ body {
   display: flex;
   align-items: center;
   font-size: 19px;
+  color: white;
   justify-content: center;
   padding: 30px;
 }
@@ -199,10 +210,26 @@ body {
   width: 100%;
   padding: 30px 0;
 }
+.titulo-ferramenta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.caixa-ferramenta{
+  
+  color: rgb(222, 222, 222);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  /* texto alinhado*/
+  gap: 30px;
+  padding: 10px;
+}
 .socialferramenta {
   background-color: #264a84;
   display: flex;
-  font-size: 17px;
+  font-size: 16px;
   border:#000000 solid 3px;
   align-items: center;
   justify-content: center;
@@ -528,7 +555,7 @@ body {
 .containervideos {
   justify-content: center;
   font-size: 25px;
-  border: #000000 solid 4px;
+  border: #000000 solid 2px;
   display: flex;
   background-color: #adadad;
   padding: 80px;

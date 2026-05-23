@@ -113,11 +113,13 @@
                             <p>Acertos</p>
                             <p id="quant_acertos"></p>
                         </div>
+                        
 
                         <div class="item-regua alerta-frio">
                             <p>Erros</p>
                             <p id="quant_erros"></p>
                         </div>
+                       
                     </div>
                     <div class="grafico_barra">
                         <canvas id="myChartCanvas"></canvas>
@@ -143,7 +145,7 @@
     // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
     // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
 
-    // ELA É FUNÇÃO QUE VAI BUSCAR OS DADOS NO BACK-END
+    // ELA É FUNÇÃO QUE VAI BUSCAR MEUS DADOS NO BACK-END
 
     function obterDadosGrafico() {
 
@@ -153,26 +155,25 @@
         // Faz uma requisição GET para buscar os dados do quiz do usuário
         fetch(`/quiz/buscar/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' })
 
-            // Quando a resposta chegar
+            // Quando a resposta bruta chegar então:
             .then(function (response) {
 
 
                 if (response.ok) {
 
-                    // Converte para JSON
+                    // Converto essa resposta bruta para JSON
                     response.json().then(function (resposta) {
 
-                        // Vai mostrar os dados recebidos pelo console
+                        // dados recebidos pelo console
                         console.log(resposta);
 
                         //  dados formatados
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                        // Aqui Inverte a ordem do array
-                        //  deixa o registro mais recente na posição [0]
-                        resposta.reverse();
+                      
+                      
 
-                        // Envia os dados para a função que cria os gráficos
+                        // Envio os dados para a função que cria os gráficos
                         plotarGrafico(resposta);
 
                     });
@@ -200,8 +201,8 @@
 
     function plotarGrafico(resposta) {
 
-        // Pega o primeiro registro do array
-        // Como o array foi invertido, esse será o quiz mais recente
+        // Pega o  registro do array LIMIT 1 do meu model
+        
         let dados = resposta[0];
 
 
@@ -275,7 +276,7 @@
 
 
 
-        // Seleciona o canvas do gráfico de barras
+        // Seleciono o canvas do gráfico de barras
         var ctxBarra = document.getElementById('myChartCanvas').getContext('2d');
 
 
@@ -288,7 +289,7 @@
 
             data: {
 
-                // Label principal no eixo X
+              
                 labels: ['Resultado'],
 
                 datasets: [
@@ -351,7 +352,7 @@
 
                         ticks: {
 
-                            // Não vai pula  os números Ex: 2,4,6,8 .... 
+                            // Não vai pulo  os números Ex: 2,4,6,8 .... 
                             autoSkip: false,
 
                             // Vai de 1 em 1

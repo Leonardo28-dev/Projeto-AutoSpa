@@ -21,7 +21,7 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
 
 
-                        // //  Aqui eu estou enviando os dados do usuário direto para o navegador.
+                        // //   enviando os dados do usuário direto para o navegador.
                         res.json({
                             id: resultadoAutenticar[0].id,
                             email: resultadoAutenticar[0].email,

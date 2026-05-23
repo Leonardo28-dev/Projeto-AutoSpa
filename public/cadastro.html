@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-   <link rel="shortcut icon" href="./assets/icon/LogoAutoSpa (1).jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/icon/LogoAutoSpa (1).jpg" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,11 +17,11 @@
 
 <body>
   <!--header inicio-->
-<div class="header">
-      <div class="container">
-     <div class="titulo"> 
-      <img src="assets/icon/LogoAutoSpa (1).jpg" width="80" height="80" />
-</div>
+  <div class="header">
+    <div class="container">
+      <div class="titulo">
+        <img src="assets/icon/LogoAutoSpa (1).jpg" width="80" height="80" />
+      </div>
       <ul class="navbar">
         <li>
           <a href="index.html">Inicial</a>
@@ -87,7 +87,7 @@
   <div class="footer">
     <div class="container">
       <h4>Feito por Leonardo Werner Silva ; SPTech &copy; 2026</h4>
-    
+
     </div>
   </div>
   <!--footer fim-->
@@ -118,8 +118,8 @@
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      cpfVar == "" 
-      
+      cpfVar == ""
+
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -130,54 +130,54 @@
     } else {
       setInterval(sumirMensagem, 5000);
     }
-     if (
-    nomeVar.length < 1) {
-    cardErro.style.display = "block";
-    alert("Erro seu nome deve ter mais de um caractere");
+    if (
+      nomeVar.length < 1) {
+      cardErro.style.display = "block";
+      alert("Erro seu nome deve ter mais de um caractere");
 
-    finalizarAguardar();
-    return false;
-  } else {
-    setInterval(sumirMensagem, 5000);
-  }
-  if (!emailVar.includes('@') || !emailVar.includes('.')) {
-    cardErro.style.display = "block";
-    alert("Seu email não possui @ ou .");
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+    if (!emailVar.includes('@') || !emailVar.includes('.')) {
+      cardErro.style.display = "block";
+      alert("Seu email não possui @ ou .");
 
-    finalizarAguardar();
-    return false;
-  } else {
-    setInterval(sumirMensagem, 5000);
-  }
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
 
-  if (senhaVar.length < 6) {
-    cardErro.style.display = "block";
-    alert("Senha com menos de 6 caracteres")
+    if (senhaVar.length < 6) {
+      cardErro.style.display = "block";
+      alert("Senha com menos de 6 caracteres")
 
-    finalizarAguardar();
-    return false;
-  } else {
-    setInterval(sumirMensagem, 5000);
-  }
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
 
-  if (senhaVar != confirmacaoSenhaVar) {
-    cardErro.style.display = "block";
-    alert("Senha diferente")
+    if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      alert("Senha diferente")
 
-    finalizarAguardar();
-    return false;
-  } else {
-    setInterval(sumirMensagem, 5000);
-  }
-  if (cpfVar.length != 11) {
-    cardErro.style.display = "block";
-    alert("Cpf inválido")
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+    if (cpfVar.length != 11) {
+      cardErro.style.display = "block";
+      alert("Cpf inválido")
 
-    finalizarAguardar();
-    return false;
-  } else {
-    setInterval(sumirMensagem, 5000);
-  }
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
 
 
     // Enviando o valor da nova input
@@ -228,5 +228,5 @@
   }
 
 
- 
+
 </script>

@@ -56,10 +56,10 @@ body {
 
 .overlay-info {
   position: absolute;
-  top: -120px;
-  background-color: #292f5f;
+  top: -110px;
+  background-color: #2b3aae;
   border: #292f5f solid 6px;
-  border-radius: 60px;
+  border-radius: 90px;
   display: flex;
   flex-direction: row;
   gap: 95px;
@@ -88,7 +88,11 @@ body {
   left: 12%;
   display: flex;
   align-items: center;
-  background-color: #0c3382;
+   background-image: linear-gradient(to bottom,
+      #0033ff,
+      #1d2ea8,
+      #3b1cac,
+      #0044ff);
   height: 100vh;
   overflow: auto;
 }
@@ -103,7 +107,7 @@ body {
   border-radius: 20px;
   text-align: center;
   height: 50px;
-  width: 110px;
+  width: 100px;
   font-size: 15px;
 }
 
@@ -120,11 +124,13 @@ body {
 .perigo-frio {
   background-color: blue;
   border: #000000 solid 2px;
+  border-radius: 50px;
 }
 
 .alerta-frio {
   border: #000000 solid 2px;
   background-color: #ac1616;
+  border-radius: 50px;
 }
 
 .tituloGraficos {
@@ -144,15 +150,24 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: Times New;
-  background-color: #003272;
+  background-image: linear-gradient(to bottom,
+      #0e206b,
+      #0f29ea,
+      #281274,
+      #0f2970);
+}
+
+.titulo-quiz {
+  color: #ffffff;
+  font-size: 30px;
 }
 
 .button_container button {
-  padding: 10px 20px;
+  padding: 20px 40px;
   border: none;
   align-items: center;
   border-radius: 50px;
-  background-color: #292f5f;
+  background-color: #1527b0;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -168,21 +183,32 @@ body {
 
 }
 
+.container-opcao{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .botao1 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
+  padding: 3px;
+
+  flex-direction: column;
 }
 
 .botao2 {
   display: flex;
   gap: 8px;
+flex-direction: column;
+padding: 3px;
   border-radius: 15px;
   border: #ffffff solid 2px;
-  background-color: #303077;
+  background-color: #1818be;
   align-items: center;
 }
 
@@ -191,7 +217,8 @@ body {
 .botao3 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+  flex-direction: column;
+  background-color: #1818be;
   border: #ffffff solid 2px;
   border-radius: 15px;
   align-items: center;
@@ -200,8 +227,9 @@ body {
 
 .botao4 {
   display: flex;
-  background-color: #303077;
+background-color: #1818be;
   gap: 8px;
+   flex-direction: column;
   border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
@@ -211,7 +239,8 @@ body {
 .botao5 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+  flex-direction: column;
+ background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
@@ -219,11 +248,13 @@ body {
 
 .botao6 {
   display: flex;
-  background-color: #303077;
+  background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 2px;
+  flex-direction:column ;
   gap: 8px;
   align-items: center;
+  flex-direction: column;
 }
 
 
@@ -231,16 +262,18 @@ body {
 .botao7 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+  background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
+  flex-direction:column ;
 }
 
 .botao8 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+  flex-direction:column ;
+background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
@@ -249,18 +282,20 @@ body {
 .botao9 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+ background-color: #1818be;
   border: #ffffff solid 2px;
   border-radius: 15px;
   align-items: center;
+  flex-direction:column ;
 }
 
 .botao10 {
   display: flex;
   gap: 8px;
+  flex-direction:column ;
   border-radius: 15px;
   border: #ffffff solid 2px;
-  background-color: #303077;
+ background-color: #1818be;
   align-items: center;
 }
 
@@ -268,26 +303,29 @@ body {
 .botao11 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
+  flex-direction:column ;
 }
 
 .botao12 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+  background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
+  flex-direction:column ;
 }
 
 
 .botao13 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+background-color: #1818be;
+flex-direction:column ;
   border-radius: 15px;
   border: #ffffff solid 2px;
   align-items: center;
@@ -297,8 +335,10 @@ body {
 .botao14 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+  flex-direction:column ;
+  background-color: #1818be;
   border-radius: 15px;
+  padding: 4px;
   border: #ffffff solid 2px;
   align-items: center;
 }
@@ -308,9 +348,10 @@ body {
 .botao15 {
   display: flex;
   gap: 8px;
-  background-color: #303077;
+ background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 2px;
+  flex-direction:column ;
   align-items: center;
 
 }
@@ -326,7 +367,11 @@ body {
 
 
 .fundo_quiz {
-  background-image: linear-gradient(to bottom, rgb(0, 30, 151), rgb(31, 38, 135), rgb(59, 28, 172));
+ background-image: linear-gradient(to bottom,
+      #0033ff,
+      #1d2ea8,
+      #3b1cac,
+      #0044ff);
   width: 100%;
   margin-left: 0%;
 }
@@ -438,9 +483,14 @@ canvas {
 
 /*  RANKING */
 .fundo_ranking {
-  background-image: linear-gradient(to bottom, rgb(0, 30, 151), rgb(31, 38, 135), rgb(59, 28, 172));
-  width: 100%;
-  min-height: 100vh;
+ 
+  background-size: 100%; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  width: 220vh;
+  background-image: url('../assets/imgs/fundo-quiz.jpg');
+  min-height: 106vh;
+ 
   flex-direction: end;
   display: flex;
   color: #ffffff;
@@ -449,19 +499,47 @@ canvas {
 
 }
 
+.titulo-colocacoes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
+  font-size: 40px;
+}
+
+.podio-colocacoes{
+  display: flex;
+  justify-content: center;
+padding: 100px;
+  gap: 20px;
+  border: #000000 solid 4px;
+  border-radius: 13px;
+  font-size: 20px;
+  padding-left: 80px;
+ color:#ffffff;
+  align-items: center;
+  justify-content: center;
+   flex-direction: column;
+ font-family: Arial, sans-serif;
+  font-weight: bold;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+
 .ranking-title {
- font-family: Times New;
+  font-family: Times New;
   background-color: #3141b8;
   font-size: 40px;
 
   width: 100%;
+  color: white;
+  
 
-  height: 50px;
- border: #000000 solid 3px;
+  border: #000000 solid 3px;
   display: flex;
-
+ 
   justify-content: center;
-
+  padding-left: 80px;
   align-items: center;
 
 }
@@ -469,14 +547,13 @@ canvas {
 .podio-container {
 
   display: flex;
-
   justify-content: center;
-  left: 100%;
   align-items: end;
   color: #000000;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   gap: 30px;
+height: 50%;
 
+  padding-left: 160px;
   width: 100%;
 
 
@@ -487,8 +564,17 @@ canvas {
   height: 160px;
   border: #000000 solid 3px;
   padding: 40px;
-  right: 60px;
+  border-radius: 15px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  right: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
   display: flex;
+  flex-direction: column;
+justify-content: center;
+transition: 0.3s;
+align-items: center;
 }
 
 .podio-primeiro {
@@ -496,16 +582,32 @@ canvas {
   height: 200px;
   border: #000000 solid 3px;
   padding: 40px;
-  box-shadow: #000000;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
   display: flex;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  flex-direction: column;
+  transition: 0.3s;
+justify-content: center;
+align-items: center;
 
 }
 
 .podio-terceiro {
-  background-color: #f60606;
+  background-color: #263f91;
   height: 80px;
   border: #000000 solid 3px;
   padding: 40px;
-
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
   display: flex;
+  flex-direction: column;
+justify-content: center;
+transition: 0.3s;
+align-items: center;
 }

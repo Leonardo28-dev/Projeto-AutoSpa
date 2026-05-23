@@ -10,7 +10,7 @@ function listarRanking() {
      ON usuario.id=Resultado_quiz.fk_usuario
     GROUP BY usuario.nome, usuario.id
     ORDER BY acertos DESC
-    LIMIT 3
+    LIMIT 8
      `
 // neste caso peguei  o MAIOR número de acertos de cada usuário.
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

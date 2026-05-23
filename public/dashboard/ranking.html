@@ -64,34 +64,44 @@
             </div>
 
         </div>
-          <div class="ranking-title">
-           Ranking dos Usuários
+        <div class="ranking-title">
+            Ranking dos Usuários
 
-            </div>
+        </div>
         <div class="fundo_ranking">
 
-          
+
             <div class="podio-container">
                 <div class="podio-segundo">
                     <h2>🥈</h2>
-                    <span id="segundo"></span>
+                    <span id="segundo"></span>acertos
 
                 </div>
                 <div class="podio-primeiro">
                     <h2>🥇</h2>
-                    <span id="primeiro"></span>
+                    <span id="primeiro"></span>acertos
 
                 </div>
                 <div class="podio-terceiro">
                     <h2>🥉</h2>
-                    <span id="terceiro"></span>
+                    <span id="terceiro"></span>acertos
 
                 </div>
 
+                <div class="podio-colocacoes">
+                    <div class="titulo-colocacoes">
+                        Colocações
+                    </div>
+                    <span id="quarto"></span>
+                    <span id="quinto"></span>
+                    <span id="sexto"></span>
+                    <span id="setimo"></span>
+                    <span id="oitavo"></span>
+
+                </div>
             </div>
 
         </div>
-
 
 
 
@@ -102,42 +112,148 @@
 </html>
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-// Função que buscar o ranking no backend
+    // Função que buscar o ranking no backend
     function buscarRanking() {
-         // Faz uma requisição para a rota /ranking/listar
+        // Faz uma requisição para a rota /ranking/listar
         fetch("/ranking/listar")
-           // Quando a resposta chegar do backend
+            // Quando a resposta chegar do backend
             .then(function (resposta) {
-                // CONVERTO A RESPOSTA PARA JSON!!
+                // CONVERTO A RESPOSTA PARA JSON
                 resposta.json().then(function (dados) {
-                    // Nesse caso dados é o meu array
+                    // Dados é o meu array
                     console.log(dados);
-                    // dados[0].nome ----> primeiro nome na primeira posição do meu array e assim no restante
+                    // dados[0].nome ----> primeiro nome na primeira posição do meu array ...
                     primeiro.innerHTML = `
                     
                     ${dados[0].nome}
                     ${dados[0].acertos}
                     
                     
-                    `
+                    `;
                     segundo.innerHTML = `
                     ${dados[1].nome}
                     ${dados[1].acertos}
                     
                     
-                    `
+                    `;
                     terceiro.innerHTML = `
                     ${dados[2].nome}
                     ${dados[2].acertos}
                     
                     
-                    `
+                     `;
+                    quarto.innerHTML = `
+                    ${dados[3].nome}
+                    ${dados[3].acertos}
+                    
+                    
+                     `;
+                    quinto.innerHTML = `
+                    ${dados[4].nome}
+                    ${dados[4].acertos}
+                    
+                    
+                      `;
+                    sexto.innerHTML = `
+                    ${dados[5].nome}
+                    ${dados[5].acertos}
+                    
+                    
+                     `;
+                    setimo.innerHTML = `
+                    ${dados[6].nome}
+                    ${dados[6].acertos}
+                    
+                    
+                     `;
+                    oitavo.innerHTML = `
+                    ${dados[7].nome}
+                    ${dados[7].acertos}
+                    
+                    
+                    `;
                 });
             });
 
 
 
     }
-      // Chamao a função automaticamente quando a página abre
-    buscarRanking();
+    // Chamo a função atualizarRanking quando a página abre sem precisar dar F5
+    AtualizarRanking();
+
+    function AtualizarRanking() {
+        fetch("/ranking/listar", { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (dados) {
+                    console.log("Ranking Atualizado");
+                    console.log(dados)
+                    primeiro.innerHTML = `
+                    
+                    ${dados[0].nome}
+                    ${dados[0].acertos};
+                    
+                    
+                     `;
+                    segundo.innerHTML = `
+                    ${dados[1].nome}
+                    ${dados[1].acertos};
+                    
+                    
+                     `;
+                    terceiro.innerHTML = `
+                    ${dados[2].nome}
+                    ${dados[2].acertos};
+                    
+                    
+                     `;
+                    quarto.innerHTML = `
+                    ${dados[3].nome}
+                    ${dados[3].acertos};
+                    
+                    
+                     `;
+                    quinto.innerHTML = `
+                    ${dados[4].nome}
+                    ${dados[4].acertos};
+                    
+                    
+                     `;
+                    sexto.innerHTML = `
+                    ${dados[5].nome}
+                    ${dados[5].acertos};
+                    
+                    
+                     `;
+                    setimo.innerHTML = `
+                    ${dados[6].nome}
+                    ${dados[6].acertos};
+                    
+                    
+                     `;
+                    oitavo.innerHTML = `
+                    ${dados[7].nome}
+                    ${dados[7].acertos};
+                        `;
+
+                    proximaAtualizacao = setTimeout(() => {
+                        AtualizarRanking();
+                    }, 2000);
+
+                });
+            } else {
+
+                console.error("Nenhum dado encontrado");
+
+                proximaAtualizacao = setTimeout(() => {
+                    AtualizarRanking();
+                }, 2000);
+
+            }
+
+        })
+            .catch(function (erro) {
+                console.error("Erro:", erro);
+            });
+
+    }
 </script>

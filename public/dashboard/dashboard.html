@@ -175,7 +175,7 @@
 
                         // Envio os dados para a função que cria os gráficos
                         plotarGrafico(resposta);
-
+                        AtualizarGrafico()
                     });
 
                 } else {
@@ -364,4 +364,75 @@
         });
     }
 
+
+ let proximaAtualizacao;
+
+    function AtualizarGrafico(){
+        fetch(`/quiz/buscar/${sessionStorage.ID_USUARIO}`,{cache:'no-store'}).then(function (response) {
+        if (response.ok) {
+                response.json().then(function (novoRegistro) {
+                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(novoRegistro);
+                    
+
+                     let dados = novoRegistro[0];
+
+
+
+
+        let cont_acertos = dados.acertos;
+        let cont_erros = dados.erros;
+        let total = cont_acertos + cont_erros;
+
+
+
+        let porcent_acerto = ((cont_acertos / total) * 100).toFixed(0);
+
+
+        let porcent_erro = ((cont_erros / total) * 100).toFixed(0);
+
+
+
+       //   Atualiza indicadores
+        porcent_acertos.innerHTML = porcent_acerto;
+        porcent_erros.innerHTML = porcent_erro;
+
+
+
+
+        quant_acertos.innerHTML = cont_acertos;
+        quant_erros.innerHTML = cont_erros;
+
+        // Atualiza Gráfico de pizza
+        graficoPizza.data.datasets[0].data[0]=porcent_acerto
+        graficoPizza.data.datasets[0].data[1]=porcent_erro
+        graficoPizza.update();
+
+         // Atualiza Gráfico de Barra
+        graficoBarra.data.datasets[0].data[0]=cont_acertos
+        graficoBarra.data.datasets[1].data[0]=cont_erros
+        graficoBarra.update();
+  
+
+        
+                    proximaAtualizacao = setTimeout(() => {
+                        AtualizarGrafico();
+                    }, 2000);
+             });
+            } else {
+
+                console.error("Nenhum dado encontrado");
+
+                proximaAtualizacao = setTimeout(() => {
+                    AtualizarGrafico();
+                }, 2000);
+
+            }
+
+        })
+            .catch(function (erro) {
+                console.error("Erro:", erro);
+            });
+
+    }
 </script>

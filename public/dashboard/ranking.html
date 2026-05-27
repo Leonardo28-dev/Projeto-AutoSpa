@@ -178,11 +178,12 @@
 
 
     }
-    // Chamo a função atualizarRanking quando a página abre sem precisar dar F5
+    // Chamo a função atualizarRanking 
     AtualizarRanking();
 
     function AtualizarRanking() {
-        fetch("/ranking/listar", { cache: 'no-store' }).then(function (response) {
+        fetch(`/ranking/listar`, { cache: 'no-store' })
+        .then(function (response) {
             if (response.ok) {
                 response.json().then(function (dados) {
                     console.log("Ranking Atualizado");
@@ -256,4 +257,6 @@
             });
 
     }
+
+    
 </script>

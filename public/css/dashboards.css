@@ -152,7 +152,7 @@ body {
   font-family: Times New;
   background-image: linear-gradient(to bottom,
       #0e206b,
-      #0f29ea,
+      #101961,
       #281274,
       #0f2970);
 }
@@ -168,6 +168,7 @@ body {
   align-items: center;
   border-radius: 50px;
   background-color: #1527b0;
+  border: white solid 1px;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -194,7 +195,7 @@ body {
   gap: 8px;
 background-color: #1818be;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
   padding: 3px;
 
@@ -207,7 +208,7 @@ background-color: #1818be;
 flex-direction: column;
 padding: 3px;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   background-color: #1818be;
   align-items: center;
 }
@@ -219,7 +220,7 @@ padding: 3px;
   gap: 8px;
   flex-direction: column;
   background-color: #1818be;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   border-radius: 15px;
   align-items: center;
 }
@@ -231,7 +232,7 @@ background-color: #1818be;
   gap: 8px;
    flex-direction: column;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
 }
 
@@ -242,7 +243,7 @@ background-color: #1818be;
   flex-direction: column;
  background-color: #1818be;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
 }
 
@@ -250,7 +251,7 @@ background-color: #1818be;
   display: flex;
   background-color: #1818be;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   flex-direction:column ;
   gap: 8px;
   align-items: center;
@@ -264,7 +265,7 @@ background-color: #1818be;
   gap: 8px;
   background-color: #1818be;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
   flex-direction:column ;
 }
@@ -275,7 +276,7 @@ background-color: #1818be;
   flex-direction:column ;
 background-color: #1818be;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
 }
 
@@ -283,7 +284,7 @@ background-color: #1818be;
   display: flex;
   gap: 8px;
  background-color: #1818be;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   border-radius: 15px;
   align-items: center;
   flex-direction:column ;
@@ -294,7 +295,7 @@ background-color: #1818be;
   gap: 8px;
   flex-direction:column ;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
  background-color: #1818be;
   align-items: center;
 }
@@ -305,7 +306,7 @@ background-color: #1818be;
   gap: 8px;
 background-color: #1818be;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
   flex-direction:column ;
 }
@@ -315,7 +316,7 @@ background-color: #1818be;
   gap: 8px;
   background-color: #1818be;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
   flex-direction:column ;
 }
@@ -327,7 +328,7 @@ background-color: #1818be;
 background-color: #1818be;
 flex-direction:column ;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
 }
 
@@ -339,7 +340,7 @@ flex-direction:column ;
   background-color: #1818be;
   border-radius: 15px;
   padding: 4px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   align-items: center;
 }
 
@@ -350,7 +351,7 @@ flex-direction:column ;
   gap: 8px;
  background-color: #1818be;
   border-radius: 15px;
-  border: #ffffff solid 2px;
+  border: #ffffff solid 1px;
   flex-direction:column ;
   align-items: center;
 
@@ -488,7 +489,7 @@ canvas {
   background-repeat: no-repeat;
   background-position: center; 
   width: 220vh;
-  background-image: url('../assets/imgs/fundo-quiz.jpg');
+  background-image: url('../assets/imgs/fundo-ranking.png');
   min-height: 106vh;
  
   flex-direction: end;

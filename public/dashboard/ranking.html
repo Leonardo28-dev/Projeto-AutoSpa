@@ -180,7 +180,7 @@
     }
     // Chamo a função atualizarRanking 
     AtualizarRanking();
-
+ //  listo todos usuarios, não apenas um usuario logado
     function AtualizarRanking() {
         fetch(`/ranking/listar`, { cache: 'no-store' })
         .then(function (response) {

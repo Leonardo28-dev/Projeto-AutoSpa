@@ -73,9 +73,9 @@
             </div>
 
             <div id="graficos">
-                <!-- INDICADORES EM CIMA -->
+           
 
-                <!-- PIZZA -->
+                <!-- Grafico de Pizza -->
 
                 <div class="borda_grafico">
 
@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <!-- BARRA -->
+            <!-- Grafico de barra -->
 
             <div class="borda_grafico">
 
@@ -113,13 +113,13 @@
                             <p>Acertos</p>
                             <p id="quant_acertos"></p>
                         </div>
-                        
+
 
                         <div class="item-regua alerta-frio">
                             <p>Erros</p>
                             <p id="quant_erros"></p>
                         </div>
-                       
+
                     </div>
                     <div class="grafico_barra">
                         <canvas id="myChartCanvas"></canvas>
@@ -137,12 +137,12 @@
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    // Quando a página carregar, vai chama a função obterDadosGrafico()
+    // Quando a página carregar, vai chamar minha função obterDadosGrafico()
     window.onload = obterDadosGrafico;
 
 
     // Esta função *obterDadosGrafico* busca os últimos dados inseridos.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+    
     // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
 
     // ELA É FUNÇÃO QUE VAI BUSCAR MEUS DADOS NO BACK-END
@@ -152,16 +152,16 @@
         // Mostro no console o ID do usuário
         console.log("ID USUARIO:", sessionStorage.ID_USUARIO)
 
-        // Faz uma requisição GET para buscar os dados do quiz do usuário
+        // Requisição GET para buscar os dados do quiz do usuário
         fetch(`/quiz/buscar/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' })
 
-            // Quando a resposta bruta chegar então:
+            // Quando a resposta chegar então:
             .then(function (response) {
 
 
                 if (response.ok) {
 
-                    // Converto essa resposta bruta para JSON
+                    // Converto essa resposta para JSON
                     response.json().then(function (resposta) {
 
                         // dados recebidos pelo console
@@ -170,8 +170,8 @@
                         //  dados formatados
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                      
-                      
+
+
 
                         // Envio os dados para a função que cria os gráficos
                         plotarGrafico(resposta);
@@ -201,8 +201,8 @@
 
     function plotarGrafico(resposta) {
 
-        // Pega o  registro do array LIMIT 1 do meu model
-        
+        // Pego o  registro do array LIMIT 1 do meu model
+
         let dados = resposta[0];
 
 
@@ -234,12 +234,12 @@
 
 
 
-        // Seleciona o canvas do gráfico de pizza
+        // Seleciono o canvas do gráfico de pizza
         var ctxPizza = document.getElementById('myChartCanvasPizza').getContext('2d');
 
 
 
-        // Cria o gráfico usando Chart.js
+        // Crio o gráfico usando Chart.js
         graficoPizza = new Chart(ctxPizza, {
 
 
@@ -289,7 +289,7 @@
 
             data: {
 
-              
+
                 labels: ['Resultado'],
 
                 datasets: [
@@ -352,7 +352,7 @@
 
                         ticks: {
 
-                            // Não vai pulo  os números Ex: 2,4,6,8 .... 
+                            // Não pula  os números Ex: 2,4,6,8 .... 
                             autoSkip: false,
 
                             // Vai de 1 em 1
@@ -365,64 +365,69 @@
     }
 
 
- let proximaAtualizacao;
 
-    function AtualizarGrafico(){
-        fetch(`/quiz/buscar/${sessionStorage.ID_USUARIO}`,{cache:'no-store'}).then(function (response) {
-        if (response.ok) {
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando os ultimos valores inseridos na tabela 
+
+    function AtualizarGrafico() {
+        // Pego os dados do usuario que esta logado
+        fetch(`/quiz/buscar/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
                 response.json().then(function (novoRegistro) {
-                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(novoRegistro);
-                    
 
-                     let dados = novoRegistro[0];
-
-
-
-
-        let cont_acertos = dados.acertos;
-        let cont_erros = dados.erros;
-        let total = cont_acertos + cont_erros;
-
-
-
-        let porcent_acerto = ((cont_acertos / total) * 100).toFixed(0);
-
-
-        let porcent_erro = ((cont_erros / total) * 100).toFixed(0);
-
-
-
-       //   Atualiza indicadores
-        porcent_acertos.innerHTML = porcent_acerto;
-        porcent_erros.innerHTML = porcent_erro;
+                    // Pego os dados retornados do banco
+                    let dados = novoRegistro[0];
 
 
 
 
-        quant_acertos.innerHTML = cont_acertos;
-        quant_erros.innerHTML = cont_erros;
+                    let cont_acertos = dados.acertos;
+                    let cont_erros = dados.erros;
+                    let total = cont_acertos + cont_erros;
 
-        // Atualiza Gráfico de pizza
-        graficoPizza.data.datasets[0].data[0]=porcent_acerto
-        graficoPizza.data.datasets[0].data[1]=porcent_erro
-        graficoPizza.update();
 
-         // Atualiza Gráfico de Barra
-        graficoBarra.data.datasets[0].data[0]=cont_acertos
-        graficoBarra.data.datasets[1].data[0]=cont_erros
-        graficoBarra.update();
-  
 
-        
+                    let porcent_acerto = ((cont_acertos / total) * 100).toFixed(0);
+
+
+                    let porcent_erro = ((cont_erros / total) * 100).toFixed(0);
+
+
+
+                    //   Atualiza indicadores
+                    porcent_acertos.innerHTML = porcent_acerto;
+                    porcent_erros.innerHTML = porcent_erro;
+
+
+
+
+                    quant_acertos.innerHTML = cont_acertos;
+                    quant_erros.innerHTML = cont_erros;
+
+                    // Atualiza Gráfico de pizza
+                    graficoPizza.data.datasets[0].data[0] = porcent_acerto
+                    graficoPizza.data.datasets[0].data[1] = porcent_erro
+                    graficoPizza.update();
+
+                    // Atualiza Gráfico de Barra
+                    graficoBarra.data.datasets[0].data[0] = cont_acertos
+                    graficoBarra.data.datasets[1].data[0] = cont_erros
+                    graficoBarra.update();
+
+
+
                     proximaAtualizacao = setTimeout(() => {
                         AtualizarGrafico();
                     }, 2000);
-             });
+                });
             } else {
 
                 console.error("Nenhum dado encontrado");
-
+                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                 proximaAtualizacao = setTimeout(() => {
                     AtualizarGrafico();
                 }, 2000);
@@ -433,6 +438,6 @@
             .catch(function (erro) {
                 console.error("Erro:", erro);
             });
-
+        let proximaAtualizacao;
     }
 </script>

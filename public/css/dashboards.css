@@ -88,7 +88,7 @@ body {
   left: 12%;
   display: flex;
   align-items: center;
-   background-image: linear-gradient(to bottom,
+  background-image: linear-gradient(to bottom,
       #0033ff,
       #1d2ea8,
       #3b1cac,
@@ -151,10 +151,10 @@ body {
   flex-direction: column;
   font-family: Times New;
   background-image: linear-gradient(to bottom,
-      #0e206b,
-      #101961,
-      #281274,
-      #0f2970);
+      #0d46e4,
+      #1f32c0,
+      #2900bc,
+      #00258a);
 }
 
 .titulo-quiz {
@@ -178,22 +178,23 @@ body {
 
 .Questao {
   display: flex;
-  border-radius: 3px;
+  border-radius: 6px;
   align-items: center;
   flex-direction: column;
 
 }
 
-.container-opcao{
+.container-opcao {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .botao1 {
   display: flex;
   gap: 8px;
-background-color: #1818be;
+  background-color: #0000a772;
   border-radius: 15px;
   border: #ffffff solid 1px;
   align-items: center;
@@ -205,8 +206,8 @@ background-color: #1818be;
 .botao2 {
   display: flex;
   gap: 8px;
-flex-direction: column;
-padding: 3px;
+  flex-direction: column;
+  padding: 3px;
   border-radius: 15px;
   border: #ffffff solid 1px;
   background-color: #1818be;
@@ -228,9 +229,9 @@ padding: 3px;
 
 .botao4 {
   display: flex;
-background-color: #1818be;
+  background-color: #1818be;
   gap: 8px;
-   flex-direction: column;
+  flex-direction: column;
   border-radius: 15px;
   border: #ffffff solid 1px;
   align-items: center;
@@ -241,7 +242,7 @@ background-color: #1818be;
   display: flex;
   gap: 8px;
   flex-direction: column;
- background-color: #1818be;
+  background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 1px;
   align-items: center;
@@ -252,7 +253,7 @@ background-color: #1818be;
   background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 1px;
-  flex-direction:column ;
+  flex-direction: column;
   gap: 8px;
   align-items: center;
   flex-direction: column;
@@ -267,14 +268,14 @@ background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 1px;
   align-items: center;
-  flex-direction:column ;
+  flex-direction: column;
 }
 
 .botao8 {
   display: flex;
   gap: 8px;
-  flex-direction:column ;
-background-color: #1818be;
+  flex-direction: column;
+  background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 1px;
   align-items: center;
@@ -283,20 +284,20 @@ background-color: #1818be;
 .botao9 {
   display: flex;
   gap: 8px;
- background-color: #1818be;
+  background-color: #1818be;
   border: #ffffff solid 1px;
   border-radius: 15px;
   align-items: center;
-  flex-direction:column ;
+  flex-direction: column;
 }
 
 .botao10 {
   display: flex;
   gap: 8px;
-  flex-direction:column ;
+  flex-direction: column;
   border-radius: 15px;
   border: #ffffff solid 1px;
- background-color: #1818be;
+  background-color: #1818be;
   align-items: center;
 }
 
@@ -304,11 +305,11 @@ background-color: #1818be;
 .botao11 {
   display: flex;
   gap: 8px;
-background-color: #1818be;
+  background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 1px;
   align-items: center;
-  flex-direction:column ;
+  flex-direction: column;
 }
 
 .botao12 {
@@ -318,15 +319,15 @@ background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 1px;
   align-items: center;
-  flex-direction:column ;
+  flex-direction: column;
 }
 
 
 .botao13 {
   display: flex;
   gap: 8px;
-background-color: #1818be;
-flex-direction:column ;
+  background-color: #1818be;
+  flex-direction: column;
   border-radius: 15px;
   border: #ffffff solid 1px;
   align-items: center;
@@ -336,7 +337,7 @@ flex-direction:column ;
 .botao14 {
   display: flex;
   gap: 8px;
-  flex-direction:column ;
+  flex-direction: column;
   background-color: #1818be;
   border-radius: 15px;
   padding: 4px;
@@ -349,10 +350,10 @@ flex-direction:column ;
 .botao15 {
   display: flex;
   gap: 8px;
- background-color: #1818be;
+  background-color: #1818be;
   border-radius: 15px;
   border: #ffffff solid 1px;
-  flex-direction:column ;
+  flex-direction: column;
   align-items: center;
 
 }
@@ -368,7 +369,7 @@ flex-direction:column ;
 
 
 .fundo_quiz {
- background-image: linear-gradient(to bottom,
+  background-image: linear-gradient(to bottom,
       #0033ff,
       #1d2ea8,
       #3b1cac,
@@ -409,7 +410,7 @@ canvas {
   justify-content: space-evenly;
   align-items: center;
   border-right: 3px solid #000000;
-  background-color: #303077;
+  background-color: #2c2770;
 }
 
 
@@ -484,14 +485,14 @@ canvas {
 
 /*  RANKING */
 .fundo_ranking {
- 
-  background-size: 100%; 
+
+  background-size: 100%;
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
   width: 220vh;
   background-image: url('../assets/imgs/fundo-ranking.png');
   min-height: 106vh;
- 
+
   flex-direction: end;
   display: flex;
   color: #ffffff;
@@ -500,7 +501,7 @@ canvas {
 
 }
 
-.titulo-colocacoes{
+.titulo-colocacoes {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -508,20 +509,20 @@ canvas {
   font-size: 40px;
 }
 
-.podio-colocacoes{
+.podio-colocacoes {
   display: flex;
   justify-content: center;
-padding: 100px;
+  padding: 100px;
   gap: 20px;
   border: #000000 solid 4px;
   border-radius: 13px;
   font-size: 20px;
   padding-left: 80px;
- color:#ffffff;
+  color: #ffffff;
   align-items: center;
   justify-content: center;
-   flex-direction: column;
- font-family: Arial, sans-serif;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
   font-weight: bold;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
@@ -534,11 +535,11 @@ padding: 100px;
 
   width: 100%;
   color: white;
-  
+
 
   border: #000000 solid 3px;
   display: flex;
- 
+
   justify-content: center;
   padding-left: 80px;
   align-items: center;
@@ -552,7 +553,7 @@ padding: 100px;
   align-items: end;
   color: #000000;
   gap: 30px;
-height: 50%;
+  height: 50%;
 
   padding-left: 160px;
   width: 100%;
@@ -573,9 +574,9 @@ height: 50%;
   font-size: 20px;
   display: flex;
   flex-direction: column;
-justify-content: center;
-transition: 0.3s;
-align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  align-items: center;
 }
 
 .podio-primeiro {
@@ -591,8 +592,8 @@ align-items: center;
   font-size: 20px;
   flex-direction: column;
   transition: 0.3s;
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -608,7 +609,7 @@ align-items: center;
   font-weight: bold;
   display: flex;
   flex-direction: column;
-justify-content: center;
-transition: 0.3s;
-align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  align-items: center;
 }

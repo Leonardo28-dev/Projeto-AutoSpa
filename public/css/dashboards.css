@@ -58,7 +58,7 @@ body {
   position: absolute;
   top: -110px;
   background-color: #2b3aae;
-  border: #292f5f solid 6px;
+  border: #ffffffaf solid 3px;
   border-radius: 90px;
   display: flex;
   flex-direction: row;
@@ -181,6 +181,7 @@ body {
   border-radius: 6px;
   align-items: center;
   flex-direction: column;
+  
 
 }
 
@@ -189,6 +190,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .botao1 {

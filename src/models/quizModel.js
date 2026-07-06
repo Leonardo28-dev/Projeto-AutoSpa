@@ -13,14 +13,14 @@ function salvar(acertos, erros, fk_usuario) {
 
     /*  'ORDER BY'
        O banco de dados neste caso armazena várias tentativas do usuário. 
-       Para o gráfico da Dashboard, quero apenas a MAIS RECENTE.
-        ORDER BY idResultado DESC: Organiza do maior ID (último inserido) para o menor.
-        LIMIT 1: Garante que o banco me retorne apenas 1 linha (a minha última tentativa).
+       Para o gráfico da Dashboard, pego somente o mais recente
+        ORDER BY idResultado DESC: Organizo do maior ID (último inserido) para o menor.
+        LIMIT 1: O banco me retorna apenas 1 linha(a minha última tentativa).
     
 
     console.log("Executando a instrução SQL:\n " + instrucaoSql);
     return database.executar(instrucaoSql);
-}
+
 */
 function buscar(idUsuario) {
 
